@@ -1,5 +1,12 @@
 <div class="events index">
-	<h2><?php echo __('Events'); ?></h2>
+
+	<div class="header2">
+		<h1>イベント一覧</h1>
+		<h2>Event List</h2>
+	</div>
+
+
+
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -51,14 +58,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Event'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

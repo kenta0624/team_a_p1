@@ -50,7 +50,7 @@ class AppController extends Controller
                 )
             ),
             'loginRedirect' => array(
-                'controller' => 'Users',
+                'controller' => 'Events',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
