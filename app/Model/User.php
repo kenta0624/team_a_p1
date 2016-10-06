@@ -1,6 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 /**
  * User Model
  *
@@ -66,5 +66,18 @@ class User extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+    /*
+     *
+     * */
+    public function beforeSave($options = array()) {
+        if (!empty($this->data[$this->alias]['password'])) {
+            $passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha256'));
+            $this->data[$this->alias]['password'] = $passwordHasher->hash(
+                $this->data[$this->alias]['password']
+            );
+        }
+        return true;
+    }
 
 }

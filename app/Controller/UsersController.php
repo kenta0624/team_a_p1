@@ -53,18 +53,16 @@ class UsersController extends AppController
      */
     public function add()
     {
-        $passwordHasher = new $this->Auth->SimplePasswordHasher();
 
         if ($this->request->is('post')) {
-            
 
             $this->User->create();
-            $this->User->save(array(
-                'name' => 'test5',
-                'password' => $passwordHasher->hash('5555'),
-            ));
-
-
+            $this->User->save(
+                array(
+                    'name' => $this->request->data['User']['name'],
+                    'password' => $this->request->data['User']['password']
+                )
+            );
 
 
 /*            if ($this->User->save(array(
@@ -128,10 +126,20 @@ class UsersController extends AppController
 
     public function login()
     {
-        if ($this->Auth->login()) {
+        if ($this->Auth->login($this->request->data)) {
+            $this->Flash->set($this->Auth->user('name').'ログインしました');
             return $this->redirect($this->Auth->redirectUrl());
         } else {
             return $this->Flash->set('ユーザー名とパスワードが正しくありません。再入力してください。');
         }
     }
+
+    public function logout(){
+
+        $logoutUrl = $this->Auth->logout();
+        $this->redirect($logoutUrl);
+    }
+
+
+
 }

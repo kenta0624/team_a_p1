@@ -38,18 +38,45 @@ class AppController extends Controller
             'loginAction' => '/users/login',
             'authenticate' => array(
                 'Form' => array(
+                    'passwordHasher' => array(
+                        'className' => 'Simple',
+                        'hashType' => 'sha256'
+                    ),
                     'userModel' => 'User',
                     'fields' => array(
                         'username' => 'name',
-                        'passwprd' => 'password'
+                        'password' => 'password'
                     )
                 )
+            ),
+            'loginRedirect' => array(
+                'controller' => 'Users',
+                'action' => 'index'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'Users',
+                'action' => 'login'
             )
+
         )
     );
 
-    public function beforeFilter() {
+    public function beforeFilter()
+    {
         parent::beforeFilter();
-        $this->Auth->allow( array('controller' => 'users', 'action' => 'add'));
+        $this->Auth->allow(
+            array(
+                array('controller' => 'users', 'action' => 'add'),
+                array('controller' => 'users', 'action' => 'index'),
+                array('controller' => 'users', 'action' => 'edit'),
+                array('controller' => 'users', 'action' => 'delete'),
+                array('controller' => 'users', 'action' => 'view'),
+                array('controller' => 'users', 'action' => 'login'),
+                array('controller' => 'users', 'action' => 'logout'),
+
+
+
+            )
+        );
     }
 }
