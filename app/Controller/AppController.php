@@ -61,22 +61,4 @@ class AppController extends Controller
         )
     );
 
-    public function beforeFilter()
-    {
-        parent::beforeFilter();
-        $this->Auth->allow(
-            array(
-                array('controller' => 'users', 'action' => 'add'),
-                array('controller' => 'users', 'action' => 'index'),
-                array('controller' => 'users', 'action' => 'edit'),
-                array('controller' => 'users', 'action' => 'delete'),
-                array('controller' => 'users', 'action' => 'view'),
-                array('controller' => 'users', 'action' => 'login'),
-                array('controller' => 'users', 'action' => 'logout'),
-
-
-
-            )
-        );
-    }
 }

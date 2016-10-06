@@ -141,5 +141,21 @@ class UsersController extends AppController
     }
 
 
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow(
+            array(
+                'add',
+                'index',
+                'edit',
+                'delete',
+                'view',
+                'login',
+                'logout'
+
+            )
+        );
+    }
 
 }
