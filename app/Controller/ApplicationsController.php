@@ -47,19 +47,51 @@ class ApplicationsController extends AppController {
  *
  * @return void
  */
-	public function add() {
-		if ($this->request->is('post')) {
+	public function add($event_id) {
+
+	    if(is_null($event_id)){
+	        $this->Flash->set('不正なアクセス');
+            $this->redirect(array('controller'=>'Applications','action'=>'noEventId'));
+        }
+
+        if ($this->request->is('post')) {
+		    /*　申し込みボタンからのリクエストの場合
+		    * 　データの追加を実施
+		    */
 			$this->Application->create();
 			if ($this->Application->save($this->request->data)) {
-				$this->Flash->success(__('The application has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'added',$event_id));
 			} else {
 				$this->Flash->error(__('The application could not be saved. Please, try again.'));
 			}
-		}
-		$tickets = $this->Application->Ticket->find('list');
+		} else {
+		    /*　申し込みボタン以外からのリクエストの場合
+		     *　Eventの値をセット
+		     **/
+
+            $this->loadModel('Event');
+            $this->set('eventInfo',$this->Event->find('first',array('conditions' => array('Event.id' => $event_id))));
+
+        }
+
+		$tickets = $this->Application->Ticket->find('list',array('conditions' => array('event_id' => $event_id)));
 		$this->set(compact('tickets'));
 	}
+
+    /**
+     * added method
+     *
+     * @return void
+     */
+	public function added(){
+
+
+    }
+
+    public function noEventId(){
+
+    }
+
 
 /**
  * edit method
