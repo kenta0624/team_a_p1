@@ -13,6 +13,10 @@
     echo $this->fetch('meta');
     echo $this->fetch('css');
     echo $this->fetch('script');
+
+    //コントローラー名.アクション名.css　のスタイルを読み込む記述
+    echo $this->Html->css($this->params['controller'].'.'.$this->params['action']);
+
     ?>
 </head>
 <body>
