@@ -59,8 +59,13 @@ class ApplicationsController extends AppController {
 		    * 　データの追加を実施
 		    */
 			$this->Application->create();
-			if ($this->Application->save($this->request->data)) {
-				return $this->redirect(array('action' => 'added',$event_id));
+            $newApplication = $this->Application->save($this->request->data);
+			if (is_array($newApplication)) {
+
+				$this->log($newApplication,'debug');
+                $this->log($newApplication,$newApplication['Application']['id']);
+
+			    return $this->redirect(array('action' => 'added',$newApplication['Application']['id']));
 			} else {
 				$this->Flash->error(__('The application could not be saved. Please, try again.'));
 			}
@@ -83,9 +88,9 @@ class ApplicationsController extends AppController {
      *
      * @return void
      */
-	public function added(){
+	public function added($a){
 
-
+	    $this->set('application',$this->Application->find('first',array('conditions' => array('Application.id' => $a))));
     }
 
     public function noEventId(){
