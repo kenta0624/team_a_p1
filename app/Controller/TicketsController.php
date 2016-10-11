@@ -24,7 +24,12 @@ class TicketsController extends AppController {
  */
 	public function index() {
 		$this->Ticket->recursive = 0;
-		$this->set('tickets', $this->Paginator->paginate());
+        $this->set('user_name', $this->Auth->user('User.name'));
+        //$user_id = $this->Auth->user('id'); 上手く取得できないので保留
+        //$this->log($user_id, LOG_DEBUG);
+        $user_id = 1;
+        $condition = array('Event.user_id' => $user_id);
+        $this->set('tickets', $this->Paginator->paginate($condition));
 	}
 
 /**
@@ -57,7 +62,10 @@ class TicketsController extends AppController {
 				$this->Flash->error(__('The ticket could not be saved. Please, try again.'));
 			}
 		}
-		$events = $this->Ticket->Event->find('list');
+        $this->set('user_name', $this->Auth->user('User.name'));
+        $user_id = 1;//後ほど修正
+        $conditions = array("Event.user_id" => $user_id);
+		$events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
 		$this->set(compact('events'));
 	}
 
@@ -83,8 +91,12 @@ class TicketsController extends AppController {
 			$options = array('conditions' => array('Ticket.' . $this->Ticket->primaryKey => $id));
 			$this->request->data = $this->Ticket->find('first', $options);
 		}
-		$events = $this->Ticket->Event->find('list');
+        $this->set('user_name', $this->Auth->user('User.name'));
+        $user_id = 1;//後ほど修正
+        $conditions = array("Event.user_id" => $user_id);
+		$events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
 		$this->set(compact('events'));
+        $this->set('data', $this->request->data);
 	}
 
 /**
