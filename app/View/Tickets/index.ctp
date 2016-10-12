@@ -37,4 +37,5 @@
 	</tbody>
 	</table>
 </div>
-<?php echo $this->Html->link(__('新規チケット追加'), array('action' => 'add')); ?>
+<?php
+echo $this->Html->link(__('新規チケット追加'), array('action' => 'add', $id), array('class' => 'button')); ?>

@@ -22,14 +22,15 @@ class TicketsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function index($id = null) {
+        if (!$this->Ticket->exists($id)) {
+            throw new NotFoundException(__('Invalid application'));
+        }
 		$this->Ticket->recursive = 0;
         $this->set('user_name', $this->Auth->user('User.name'));
-        //$user_id = $this->Auth->user('id'); 上手く取得できないので保留
-        //$this->log($user_id, LOG_DEBUG);
-        $user_id = 1;
-        $condition = array('Event.user_id' => $user_id);
+        $condition = array('Event.id' => $id);
         $this->set('tickets', $this->Paginator->paginate($condition));
+        $this->set('id', $id);
 	}
 
 /**
@@ -52,7 +53,10 @@ class TicketsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($id = null) {
+        if (!$this->Ticket->exists($id)) {
+            throw new NotFoundException(__('Invalid application'));
+        }
 		if ($this->request->is('post')) {
 			$this->Ticket->create();
 			if ($this->Ticket->save($this->request->data)) {
@@ -63,8 +67,7 @@ class TicketsController extends AppController {
 			}
 		}
         $this->set('user_name', $this->Auth->user('User.name'));
-        $user_id = 1;//後ほど修正
-        $conditions = array("Event.user_id" => $user_id);
+        $conditions = array("Event.id" => $id);
 		$events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
 		$this->set(compact('events'));
 	}
@@ -92,8 +95,7 @@ class TicketsController extends AppController {
 			$this->request->data = $this->Ticket->find('first', $options);
 		}
         $this->set('user_name', $this->Auth->user('User.name'));
-        $user_id = 1;//後ほど修正
-        $conditions = array("Event.user_id" => $user_id);
+        $conditions = array("Event.id" => $this->request->data['Event']['id']);
 		$events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
 		$this->set(compact('events'));
         $this->set('data', $this->request->data);
