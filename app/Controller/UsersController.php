@@ -124,7 +124,7 @@ class UsersController extends AppController
     public function login()
     {
         if ($this->Auth->login($this->request->data)) {
-            $this->Flash->set($this->Auth->user('name').'ログインしました');
+            $this->Flash->set('ログインしました');
             return $this->redirect($this->Auth->redirectUrl());
         } else {
             return $this->Flash->set('ユーザー名とパスワードが正しくありません。再入力してください。');
