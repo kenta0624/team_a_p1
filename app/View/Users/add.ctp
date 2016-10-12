@@ -12,6 +12,8 @@
             <?php echo $this->Form->submit('登録',array('class' => 'button'));?>
         </div>
         <?php echo $this->Form->end(); ?>
+
+        <?php echo $this->Html->link('Login',array('action' => 'login')); ?>
     </div>
 </div>
 <!--
