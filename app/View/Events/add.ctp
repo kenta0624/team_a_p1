@@ -28,10 +28,8 @@
         'separator' => '/'
     )); ?>
 
-<?php echo $this->Form->end('登録'); ?>
+<?php echo $this->Form->submit('登録'); ?>
+<?php echo $this->Form->end(); ?>
 
 
-<?php
-
-
-$this->log(AuthComponent::user(),'debug');
+<?php echo $this->Html->link('キャンセル',array('action' => 'index')); ?>

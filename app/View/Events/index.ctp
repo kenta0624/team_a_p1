@@ -31,6 +31,12 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+
+    <p>
+        <?php echo $this->Html->link('新規追加',array('action' => 'add')); ?>
+    </p>
+
+
     <p>
         <?php
         echo $this->Paginator->counter(array(
