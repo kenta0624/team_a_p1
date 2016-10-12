@@ -14,7 +14,7 @@ class Event extends AppModel {
      * ここに記載することで、Controller、view でuser_idを扱う必要が
      * ないようにしている。2016/10/12 片塩
      */
-    public function beforeSave(){
+    public function beforeSave($options = array()){
         App::import('Model','User');
         $user = new User();
         $userId = $user->getUserId();
