@@ -88,6 +88,14 @@ class EventsController extends AppController {
 		} else {
 			$options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
 			$this->request->data = $this->Event->find('first', $options);
+            if(count($this->request->data)===0){
+                /* 対象データが見つからなかったっ場合、indexへリダイレクト。
+                 * ログインしているユーザのidに紐づくレコード以外が要求された場合を想定
+                 * 2016/10/12 片塩
+                */
+                $this->Flash->error('要求されたデータがありませんでした。');
+                $this->redirect(array('action' => 'index'));
+            }
 		}
 	}
 
