@@ -48,8 +48,10 @@ class EventsController extends AppController {
  * @return void
  */
 	public function add() {
+
 		if ($this->request->is('post')) {
 			$this->Event->create();
+
 			if ($this->Event->save($this->request->data)) {
 				$this->Flash->success(__('The event has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -57,8 +59,12 @@ class EventsController extends AppController {
 				$this->Flash->error(__('The event could not be saved. Please, try again.'));
 			}
 		}
+		/*　Event　Model　で　ログインしているユーザのuser_idを保存するようにしたため、
+		 *  また、画面に表示する必要がないため、User Modelのデータをviewに渡す処理は不要
+		 *  2016/10/12 片塩
 		$users = $this->Event->User->find('list');
 		$this->set(compact('users'));
+		*/
 	}
 
 /**
@@ -83,8 +89,6 @@ class EventsController extends AppController {
 			$options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
 			$this->request->data = $this->Event->find('first', $options);
 		}
-		$users = $this->Event->User->find('list');
-		$this->set(compact('users'));
 	}
 
 /**

@@ -1,26 +1,37 @@
-<div class="events form">
-<?php echo $this->Form->create('Event'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Event'); ?></legend>
-	<?php
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('title');
-		echo $this->Form->input('detail');
-		echo $this->Form->input('image');
-		echo $this->Form->input('start_date');
-		echo $this->Form->input('end_date');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php echo $this->Form->create('Event', array('label' => false)); ?>
 
-		<li><?php echo $this->Html->link(__('List Events'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php /*echo $this->Form->input('user_id', array('label' => false)); */?>
+
+<?php echo $this->Form->input('title', array('label' => false)); ?>
+<?php echo $this->Form->input('detail', array('label' => false)); ?>
+<?php echo $this->Form->input('image',
+    array(
+        'type' => 'file',
+        'label' => false,
+    )); ?>
+<?php echo $this->Form->input(
+    'start_date',
+    array(
+        'label' => false, 'type' => 'datetime',
+        'dateFormat' => 'YMD',
+        'monthNames' => false,
+        'timeFormat' => '24',
+        'separator' => '/'
+    )); ?>
+<?php echo $this->Form->input(
+    'end_date',
+    array(
+        'label' => false, 'type' => 'datetime',
+        'dateFormat' => 'YMD',
+        'monthNames' => false,
+        'timeFormat' => '24',
+        'separator' => '/'
+    )); ?>
+
+<?php echo $this->Form->end('登録'); ?>
+
+
+<?php
+
+
+$this->log(AuthComponent::user(),'debug');

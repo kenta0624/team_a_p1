@@ -6,7 +6,21 @@ App::uses('AppModel', 'Model');
  * @property User $User
  * @property Ticket $Ticket
  */
+
 class Event extends AppModel {
+
+    /*
+     * saveの際に、user_idをログインしているuserのものに設定する
+     * ここに記載することで、Controller、view でuser_idを扱う必要が
+     * ないようにしている。2016/10/12 片塩
+     */
+    public function beforeSave(){
+        App::import('Model','User');
+        $user = new User();
+        $userId = $user->getUserId();
+        $this->data['Event']['user_id'] = $userId;
+
+    }
 
 /**
  * Display field
