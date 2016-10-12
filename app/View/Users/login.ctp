@@ -20,9 +20,14 @@
         </div>
         <div class="button-panel">
             <!--<input type="submit" class="button" title="Login" value="Login"></input>-->
-            <?php echo $this->Form->submit('Submit',array('class' => 'button'));?>
+            <?php echo $this->Form->submit('Login',array('class' => 'button'));?>
         </div>
         <?php echo $this->Form->end(); ?>
+
+        <div class="">
+            <?php echo $this->Html->link('新規登録',array('action' => 'add'));?> ←後で修正
+        </div>
+
         <div class="form-footer">
 
         </div>

@@ -56,7 +56,6 @@ class UsersController extends AppController
     public function add()
     {
         if ($this->request->is('post')) {
-
             $this->User->create();
             $saved = $this->User->save(
                 array(
@@ -64,12 +63,11 @@ class UsersController extends AppController
                     'password' => $this->request->data['User']['password']
                 )
             );
-
             if($saved){
-                $this->Flash->success(__('ユーザを追加しました'));
+                $this->Flash->success('ユーザを追加しました');
                 return $this->redirect(array('controller'=>'Users','action' => 'login'));
             } else {
-                $this->Flash->error(__('登録できませんでした。もう一度お試しください。'));
+                $this->Flash->error('登録できませんでした');
             }
         }
     }

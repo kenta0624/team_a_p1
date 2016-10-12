@@ -1,20 +1,22 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Add User'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('password');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<div class="wrapper">
+    <div class="form-wrapper">
+        <h3>新規登録</h3>
+        <?php echo $this->Form->create('User'); ?>
+        <div class="form-item">
+            <?php echo $this->Form->input('name',array('label' => false,'required' => 'required','placeholder' => 'Id')); ?>
+        </div>
+        <div class="form-item">
+            <?php echo $this->Form->password('password',array('required' => 'required','placeholder' => 'Password')); ?>
+        </div>
+        <div class="button-panel">
+            <?php echo $this->Form->submit('登録',array('class' => 'button'));?>
+        </div>
+        <?php echo $this->Form->end(); ?>
+    </div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Events'), array('controller' => 'events', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Event'), array('controller' => 'events', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<!--
+<?php /*echo $this->Form->create('User'); */?>
+<?php /*echo $this->Form->input('name'); */?>
+<?php /*echo $this->Form->input('password'); */?>
+<?php /*echo $this->Form->submit('登録'); */?>
+--><?php /*echo $this->Form->end(); */?>

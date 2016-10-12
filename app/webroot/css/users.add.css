@@ -1,0 +1,101 @@
+/* フォントと全体幅と中央寄せ */
+body {
+	font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+/* header部分 */
+header {
+	width: 1000px;
+	height: 100px;
+
+}
+
+h1 {
+	float: left;
+	font-size: 35px;
+}
+
+h2 {
+	float: right;
+	font-size: 35px;
+	color: #d5d5d5;
+}
+
+
+.form-wrapper {
+
+	background: #ffffff;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding: 10px 30px 10px 30px;
+	width: 400px;
+	border: solid 2px #000000;
+	box-shadow : 0 0 0 1px #d5d5d5;
+
+
+}
+
+h3 {
+	font-size: 50px;
+	text-align: center;
+
+	letter-spacing: 1px;
+}
+
+form {
+	padding: 0 10px 0 10px;
+}
+
+.form-item {
+
+	width: 100%;
+}
+
+.form-item input {
+	background: #ffffff;
+	border: none;
+	border-bottom: 2px solid #d5d5d5;
+	color: #666;
+
+	font-size: 22px;
+	height: 50px;
+
+	width: 100%;
+}
+
+
+
+.button-panel {
+	margin: 20px 0 0 0;
+	width: 100%;
+}
+
+.button-panel .button {
+	background: #f16272;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	height: 50px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background 0.3s ease-in-out;
+	width: 100%;
+}
+
+.button:hover {
+	background: #ee3e52;
+}
+
+.form-footer {
+
+	padding: 30px;
+
+}
+

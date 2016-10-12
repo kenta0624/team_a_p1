@@ -27,17 +27,21 @@ class User extends AppModel
         'name' => array(
             'notBlank' => array(
                 'rule' => array('notBlank'),
-                //'message' => 'Your custom message here',
+                'message' => 'ユーザ名が入力されていません。入力してください。',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
+            'isUnique' => array(
+                'rule' => 'isUnique',
+                'message' => '入力されたユーザ名は既に登録されています。'
+            )
         ),
         'password' => array(
             'notBlank' => array(
                 'rule' => array('notBlank'),
-                //'message' => 'Your custom message here',
+                'message' => 'パスワードが入力されていません。入力してください。',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
