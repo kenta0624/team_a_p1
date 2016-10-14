@@ -1,0 +1,159 @@
+body {
+    font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+/* header部分 */
+header {
+    width: 1000px;
+    height: 80px;
+    border-bottom: 3px solid #000000;
+    box-shadow: 0 1px #d5d5d5;
+}
+
+h1 {
+    float: left;
+    font-size: 35px;
+}
+
+h2 {
+    float: right;
+    font-size: 35px;
+    color: #d5d5d5;
+}
+
+/* 見出し部分 */
+h3 {
+    font-size: 25px;
+    padding: .05em 0 .10em .55em;
+    border-left: 6px solid #ccc;
+    margin: 20px 0 0 0;
+}
+
+h4 {
+    font-size: 25px;
+    padding: .05em 0 .10em .55em;
+    border-left: 6px solid #ccc;
+    margin: 30px 0 0 0;
+}
+
+table.type03 {
+
+    margin:  10px 0 0 0;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border: 2px solid #31c8aa;
+
+}
+table.type03 th {
+
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #000000;
+    border-right: 2px solid #31c8aa;
+    border-bottom: 2px solid #31c8aa;
+    background-color: #f5f5f5;
+
+}
+table.type03 td {
+
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-right: 2px solid #31c8aa;
+    border-bottom: 2px solid #31c8aa;
+}
+
+.button {
+    margin:  20px 15px 0 750px;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 30px;
+    outline: none;
+}
+.button::before,
+.button::after {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    content: '';
+}
+.button,
+.button::before,
+.button::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .50s;
+    transition: all .50s;
+}
+.button {
+    position: relative;
+    background-color: #dcdcdc;
+    border: 2px solid #31c8aa;
+    border-radius: 5px;
+    color: #333;
+    line-height:
+    transition: none;
+}
+
+.button:active {
+    top: 2px;
+    box-shadow: none;
+}
+
+
+.button3 {
+    float: right;
+    margin:  20px 10px 0 0;
+    display: inline-block;
+    width: 160px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 30px;
+    outline: none;
+}
+.button3::before,
+.button3::after {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    content: '';
+}
+.button3,
+.button3::before,
+.button3::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .50s;
+    transition: all .50s;
+}
+
+.button3 {
+    position: relative;
+    background-color: #dcdcdc;
+    border: 2px solid #31c8aa;
+    border-radius: 5px;
+    color: #333;
+    line-height:
+    transition: none;
+}
+
+.button3:active {
+    top: 2px;
+    box-shadow: none;
+}
+
+.moji1 {
+    color: #59b1eb;
+}
