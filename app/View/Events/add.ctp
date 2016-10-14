@@ -72,7 +72,7 @@
         </table>
 
         <!-- ボタン -->
-        <div class="button2"><?php echo $this->Html->link('キャンセル',array('action' => 'index')); ?></div>
+        <div class="button2"><div class="button"><?php echo $this->Html->link('イベント一覧に戻る',array('action' => 'index')); ?></div></div>
 
 
         <!-- <div class="button6"> <a class="button5" href="#">保存</a></div> -->

@@ -77,7 +77,7 @@ h2 {
 	line-height: 38px;
 	overflow: hidden;
 }
-.button:hover {
+.button:hover a {
 	color: #ffffff;
 }
 .button::after {
@@ -228,5 +228,20 @@ table.type03 td {
 .moji {
 	font-size: 13px;
 	color: #3ccaff;
-	padding: 0 0 0 10px;
+
+	float: right;
+
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+#EventTitle {
+	width: 850px;
+}
+
+#EventDetail {
+	width: 850px;
 }
