@@ -1,0 +1,161 @@
+/* フォントと全体幅と中央寄せ */
+body {
+	font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+
+}
+
+/* header部分 */
+header {
+	width: 1000px;
+	height: 80px;
+	border-bottom: 3px solid #000000;
+	box-shadow: 0px 1px #d5d5d5;
+}
+
+h1 {
+	float: left;
+	font-size: 35px;
+}
+
+h2 {
+	float: right;
+	font-size: 35px;
+	color: #d5d5d5;
+}
+
+
+
+/* 新規イベント追加ボタン (途中です)*/
+.button2 {
+	margin: 20px 0 0 0;
+}
+
+.button {
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	width: 180px;
+	height: 40px;
+	text-align: center;
+	text-decoration: none;
+
+	outline: none;
+	position: relative;
+	z-index: 2;
+
+	border: 2px solid #000000;
+	color: #ffffff;
+	line-height: 38px;
+}
+.button::before,
+.button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.button,
+.button::before,
+.button::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.button {
+	position: relative;
+	z-index: 2;
+	background-color: #ffffff;
+
+	color: #000000;
+	line-height: 38px;
+	overflow: hidden;
+}
+.button:hover {
+	color: #ffffff;
+}
+.button::after {
+	top: -100%;
+	width: 100%;
+	height: 100%;
+}
+.button:hover::after {
+	top: 0;
+	background-color: #000000;
+
+}
+
+/* 表の中のボタン */
+.button3 {
+	float: left;
+	margin: 0 10px 0 0 ;
+}
+
+.button4 {
+	display: inline-block;
+	width: 110px;
+	height: 30px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 32px;
+	outline: none;
+}
+.button4::before,
+.button4::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.button4,
+.button4::before,
+.button4::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.button4 {
+	background-color: #d5d5d5;
+	color: #fff;
+}
+.button4:hover {
+	background-color: #333333;
+}
+
+/* イベント一覧表 */
+
+table.type03 {
+	margin: 10px 0 0 0;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+	border: 2px solid #d5d5d5;
+
+}
+table.type03 th {
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #000000;
+	border-right: 2px solid #d5d5d5;
+	border-bottom: 2px solid #d5d5d5;
+	background-color: #fbfbfb;
+}
+table.type03 td {
+
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-right: 2px solid #d5d5d5;
+	border-bottom: 2px solid #d5d5d5;
+}
