@@ -33,7 +33,7 @@
     </table>
 
     <div class="button2">
-        <div class="button"><?php echo $this->Html->link('新規追加',array('action' => 'add')); ?>
+        <div class="button"><?php echo $this->Html->link('新規イベント追加',array('action' => 'add')); ?>
     </div></div>
 
 

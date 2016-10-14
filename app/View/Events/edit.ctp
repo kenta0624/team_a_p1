@@ -34,6 +34,7 @@
                 <td>
                     <!--<input type="text"><span class="moji">※000文字以内</span>-->
                     <?php echo $this->Form->input('detail',array('label' => false)); ?>
+                    <span class="moji">※000文字以内</span></td>
                 </td>
             </tr>
             <tr>
@@ -68,11 +69,11 @@
 
         <!-- ボタン -->
         <!--<div class="button2"> <a class="button" href="#">イベント一覧に戻る</a></div>-->
-        <?php echo $this->Html->link('キャンセル',array('action' => 'index')); ?>
+        <div class="button2"> <div class="button"><?php echo $this->Html->link('イベント一覧に戻る',array('action' => 'index')); ?></div></div>
 
 
         <!--<div class="button6"> <a class="button5" href="#">編集</a></div>-->
-        <?php echo $this->Form->submit('登録'); ?>
+        <div class="button6"><?php echo $this->Form->submit('登録'); ?></div>
 
         <?php echo $this->Form->end(); ?>
 
