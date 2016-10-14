@@ -75,11 +75,22 @@ class EventsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+
 		if (!$this->Event->exists($id)) {
 			throw new NotFoundException(__('Invalid event'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Event->save($this->request->data)) {
+		    /*
+		     * 画像のアップロード、
+		     * レコードの更新を行う
+		     * とりあえずエラートラップなしで。　片塩　2016/10/14
+		     * */
+            $data = $this->request->data;
+            move_uploaded_file($data['Event']['file']['tmp_name'],'img/event_image_'.$data['Event']['id'].'_1.jpg');
+
+            $data['Event']['image'] = 'event_image_'.$data['Event']['id'].'_1.jpg';
+
+			if ($this->Event->save($data)) {
 				$this->Flash->success(__('The event has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

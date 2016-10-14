@@ -4,7 +4,7 @@
 </div>
 
 <div class="event_img">
-    <img src="/team_a_p1/app/webroot/img/okinawa.jpg">
+    <img src=<?php echo "/team_a_p1/app/webroot/img/".$eventInfo['Event']['image'];?>>
 </div>
 
 <h3>チケット申し込み</h3>

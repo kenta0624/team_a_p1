@@ -4,7 +4,7 @@
         <h1>イベント編集</h1>
         <h2>Event Edit</h2>
         <!-- ユーザー入力情報 タイトル＆表 -->
-        <?php echo $this->Form->create('Event'); ?>
+        <?php echo $this->Form->create('Event',array('type' => 'file')); ?>
 
         <?php echo $this->Form->input('id',array('type' => 'visible')); ?>　　//idを確認するために一時的に表示
 
@@ -14,14 +14,14 @@
                 <td>
 
                     <!--<input type="text">-->
-                    <?php echo $this->Form->input('title'); ?>
+                    <?php echo $this->Form->input('title',array('label' => false)); ?>
                     <span class="moji">※000文字以内</span></td>
             </tr>
             <tr>
                 <th>イベント画像</th>
                 <td>
                     <!--<div class="button3">ファイル形式 jpg (1000px X 400px) <a class="button4" href="#">参照</a></div>-->
-                    <?php echo $this->Form->input('image',
+                    <?php echo $this->Form->input('file',
                         array(
                             'type' => 'file',
                             'label' => false,
@@ -33,7 +33,7 @@
                 <th>詳細</th>
                 <td>
                     <!--<input type="text"><span class="moji">※000文字以内</span>-->
-                    <?php echo $this->Form->input('detail'); ?>
+                    <?php echo $this->Form->input('detail',array('label' => false)); ?>
                 </td>
             </tr>
             <tr>
