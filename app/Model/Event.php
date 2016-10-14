@@ -29,10 +29,14 @@ class Event extends AppModel
 
     public function beforeFind($query)
     {
-        App::import('Model', 'User');
-        $user = new User();
-        $query['conditions'][$this->alias . '.user_id'] = $user->getUserId();
-        return $query;
+        if(is_null(AuthComponent::user())){
+            return $query;
+        } else {
+            App::import('Model', 'User');
+            $user = new User();
+            $query['conditions'][$this->alias . '.user_id'] = $user->getUserId();
+            return $query;
+        }
     }
 
 

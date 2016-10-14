@@ -24,6 +24,15 @@ class ApplicationsController extends AppController
      *
      * @return void
      */
+
+
+    function beforeFilter(){
+        parent::beforeFilter();
+        $this->Auth->allow('add','added');
+
+    }
+
+
     public function index()
     {
         $this->Application->recursive = 2;
