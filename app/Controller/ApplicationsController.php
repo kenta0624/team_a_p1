@@ -26,7 +26,7 @@ class ApplicationsController extends AppController
      */
     public function index()
     {
-        $this->Application->recursive = 0;
+        $this->Application->recursive = 2;
         $this->set('applications', $this->Paginator->paginate());
     }
 
