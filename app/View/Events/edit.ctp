@@ -6,7 +6,7 @@
         <!-- ユーザー入力情報 タイトル＆表 -->
         <?php echo $this->Form->create('Event',array('type' => 'file')); ?>
 
-        <?php echo $this->Form->input('id',array('type' => 'visible')); ?>　　//idを確認するために一時的に表示
+        <?php echo $this->Form->input('id'); ?>　
 
         <table class="type03" width="1000">
             <tr>
