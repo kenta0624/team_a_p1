@@ -52,7 +52,22 @@ class EventsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Event->create();
 
-			if ($this->Event->save($this->request->data)) {
+            /*
+             * 画像のアップロード
+             * とりあえずエラートラップなしで。　片塩　2016/10/14
+             * */
+            $data = $this->request->data;
+            $saved = $this->Event->save($data);
+
+            $this->log($saved,'debug');
+
+            $saved['Event']['image'] = 'event_image_'.$saved['Event']['id'].'_1.jpg';
+            move_uploaded_file($saved['Event']['file']['tmp_name'],'img/event_image_'.$saved['Event']['id'].'_1.jpg');
+
+            $saved = $this->Event->save($saved);
+
+
+			if ($saved) {
 				$this->Flash->success(__('The event has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -81,8 +96,7 @@ class EventsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 		    /*
-		     * 画像のアップロード、
-		     * レコードの更新を行う
+		     * 画像のアップロード
 		     * とりあえずエラートラップなしで。　片塩　2016/10/14
 		     * */
             $data = $this->request->data;

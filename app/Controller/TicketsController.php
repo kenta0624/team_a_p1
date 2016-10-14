@@ -23,8 +23,8 @@ class TicketsController extends AppController {
  * @return void
  */
 	public function index($id = null) {
-        if (!$this->Ticket->exists($id)) {
-            throw new NotFoundException(__('Invalid application'));
+        if (!$this->Ticket->Event->exists($id)) {
+            throw new NotFoundException(__('Invalid event'));
         }
 		$this->Ticket->recursive = 0;
         $this->set('user_name', $this->Auth->user('User.name'));
@@ -61,7 +61,7 @@ class TicketsController extends AppController {
 			$this->Ticket->create();
 			if ($this->Ticket->save($this->request->data)) {
 				$this->Flash->success(__('The ticket has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index', $id));
 			} else {
 				$this->Flash->error(__('The ticket could not be saved. Please, try again.'));
 			}
@@ -70,6 +70,7 @@ class TicketsController extends AppController {
         $conditions = array("Event.id" => $id);
 		$events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
 		$this->set(compact('events'));
+        $this->set('event_id', $id);
 	}
 
 /**
@@ -86,7 +87,7 @@ class TicketsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Ticket->save($this->request->data)) {
 				$this->Flash->success(__('The ticket has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index', $this->request->data['event_id']));
 			} else {
 				$this->Flash->error(__('The ticket could not be saved. Please, try again.'));
 			}
@@ -110,6 +111,11 @@ class TicketsController extends AppController {
  */
 	public function delete($id = null) {
 		$this->Ticket->id = $id;
+
+        $conditions = array("Ticket.id" => $id);
+        $ticket = $this->Ticket->find('first', array('conditions' => $conditions));
+
+        $this->log($ticket['Ticket']['event_id'], LOG_DEBUG);
 		if (!$this->Ticket->exists()) {
 			throw new NotFoundException(__('Invalid ticket'));
 		}
@@ -119,6 +125,6 @@ class TicketsController extends AppController {
 		} else {
 			$this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+        return $this->redirect(array('action' => 'index', $ticket['Ticket']['event_id']));
 	}
 }

@@ -1,6 +1,5 @@
 <h1>チケット一覧</h1>
 <h2><?php echo __('Ticket List'); ?></h2>
-<p><?php echo $user_name; ?></p>
 <!-- 以下のクリアdiv1行は開発中に見づらいので入れたもの。デザイン入れる際は消してください -->
 <div class="clear" style="clear: both"></div>
 <div class="tickets index">

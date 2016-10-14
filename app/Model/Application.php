@@ -6,7 +6,6 @@ App::uses('AppModel', 'Model');
  * @property Ticket $Ticket
  */
 class Application extends AppModel {
-
 /**
  * Display field
  *

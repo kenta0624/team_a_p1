@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <div class="wrapper">
     <!-- ヘッダー -->
     <header>
@@ -11,9 +5,7 @@
         <h2>Add New Event</h2>
 
         <!-- ユーザー入力情報 タイトル＆表 -->
-        <?php echo $this->Form->create('Event', array('label' => false)); ?>
-
-
+        <?php echo $this->Form->create('Event', array('label' => false,'type' => 'file')); ?>
 
         <table class="type03" width="1000">
             <tr>
@@ -28,11 +20,12 @@
                 <th>イベント画像</th>
                 <td>
                     <!-- <div class="button3">ファイル形式 jpg (1000px X 400px) <a class="button4" href="#">参照</a></div> -->
-                    <?php echo $this->Form->input('image',
+                    <?php echo $this->Form->input('file',
                         array(
                             'type' => 'file',
                             'label' => false,
-                        )); ?>
+                        ));
+                    ?>
 
                 </td>
             </tr>
