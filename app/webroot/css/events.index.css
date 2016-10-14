@@ -33,6 +33,7 @@ h2 {
 /* 新規イベント追加ボタン (途中です)*/
 .button2 {
 	margin: 20px 0 0 0;
+	float: right;
 }
 
 .button {
@@ -78,7 +79,7 @@ h2 {
 	line-height: 38px;
 	overflow: hidden;
 }
-.button:hover {
+.button:hover a {
 	color: #ffffff;
 }
 .button::after {
@@ -126,8 +127,12 @@ h2 {
 
 .button4 {
 	background-color: #d5d5d5;
-	color: #fff;
 }
+
+.button4 a {
+	color: #ffffff;
+}
+
 .button4:hover {
 	background-color: #333333;
 }
@@ -158,4 +163,9 @@ table.type03 td {
 	vertical-align: top;
 	border-right: 2px solid #d5d5d5;
 	border-bottom: 2px solid #d5d5d5;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
 }
