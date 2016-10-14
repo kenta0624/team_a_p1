@@ -6,12 +6,12 @@
     </div>
 
 
-    <table class="type03" style="width:800px;">
+    <table class="type03" width="1000">
         <thead>
         <tr>
-            <th><?php echo $this->Paginator->sort('イベントID'); ?></th>
-            <th><?php echo $this->Paginator->sort('イベント名'); ?></th>
-            <th><?php echo $this->Paginator->sort('詳細'); ?></th>
+            <th width="90"><?php echo $this->Paginator->sort('イベントID'); ?></th>
+            <th width="120"><?php echo $this->Paginator->sort('イベント名'); ?></th>
+            <th width="350"><?php echo $this->Paginator->sort('詳細'); ?></th>
             <th><?php echo 'イベント'; ?></th>
             <th><?php echo 'チケット'; ?></th>
             <th><?php echo '申し込み'; ?></th>
