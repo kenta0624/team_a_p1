@@ -14,7 +14,9 @@
             <th width="350"><?php echo $this->Paginator->sort('詳細'); ?></th>
             <th><?php echo 'イベント'; ?></th>
             <th><?php echo 'チケット'; ?></th>
-            <th><?php echo '申し込み'; ?></th>
+            <th><?php echo '申し込み画面'; ?></th>
+            <th><?php echo '申し込み一覧'; ?></th>
+
 
         </tr>
         </thead>
@@ -26,6 +28,7 @@
                 <td><?php echo h($event['Event']['detail']); ?>&nbsp;</td>
                 <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('イベント編集'), array('controller' => 'events', 'action' => 'edit', $event['Event']['id'])); ?></div></div></td>
                 <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('チケット編集'), array('controller' => 'tickets', 'action' => 'index', $event['Event']['id'])); ?></div></div></td>
+                <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('申し込み画面'), array('controller' => 'applications', 'action' => 'add', $event['Event']['id'])); ?></div></div></td>
                 <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('申し込み一覧'), array('controller' => 'applications', 'action' => 'index', $event['Event']['id'])); ?></div></div></td>
             </tr>
         <?php endforeach; ?>
