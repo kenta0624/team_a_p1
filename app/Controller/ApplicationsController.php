@@ -26,17 +26,23 @@ class ApplicationsController extends AppController
      */
 
 
-    function beforeFilter(){
+    function beforeFilter()
+    {
         parent::beforeFilter();
-        $this->Auth->allow('add','added');
-
+        $this->Auth->allow('add', 'added');
     }
 
+    public $paginate = array(
+        'Application' => array(
+            'order' => array('ticket_id' => 'asc'),
+        ));
 
-    public function index()
+
+    public function index($id)
     {
         $this->Application->recursive = 2;
-        $this->set('applications', $this->Paginator->paginate());
+        $this->Paginator->settings = $this->paginate;
+        $this->set('applications', $this->Paginator->paginate(array('Ticket.event_id' => $id)));
     }
 
     /**
@@ -98,13 +104,13 @@ class ApplicationsController extends AppController
         /*
          * array(Ticket.id => [ticket_name]＋[event_date]＋[price])　の配列を作成し、viewに渡す
          */
-        foreach($allTickets as $key => $value){
-            $tickets[$value['Ticket']['id']] = $value['Ticket']['ticket_name'].
-                '　（　開催日時：'.date_format(date_create($value['Ticket']['event_date']),'Y-m-d H:i').
-                '　料金：'.$value['Ticket']['price'].'円　）' ;
+        foreach ($allTickets as $key => $value) {
+            $tickets[$value['Ticket']['id']] = $value['Ticket']['ticket_name'] .
+                '　（　開催日時：' . date_format(date_create($value['Ticket']['event_date']), 'Y-m-d H:i') .
+                '　料金：' . $value['Ticket']['price'] . '円　）';
         }
 
-        $this->set('tickets',$tickets);
+        $this->set('tickets', $tickets);
 
     }
 
