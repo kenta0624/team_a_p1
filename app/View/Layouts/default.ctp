@@ -24,7 +24,9 @@
     <div id="header">
         <?php
             if(!is_null(AuthComponent::user())){
-                echo $this->Html->link('ログアウト',array('controller'=>'Users','action'=>'logout'));
+                if($this->params['controller'] ==='application' && ($this->params['action'] === 'add' || $this->params['action'] === 'added')){
+                    echo $this->Html->link('ログアウト',array('controller'=>'Users','action'=>'logout'));
+                }
             }
         ?>
     </div>
