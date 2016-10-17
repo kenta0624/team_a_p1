@@ -2,6 +2,7 @@
 
 <h1><?php echo '申し込み詳細'; ?></h1>
 <h2><?php echo __('Application'); ?></h2><br>
+
 <p></p><br>
 <p></p><br>
 
@@ -33,7 +34,7 @@
 		<tr>
 		<td width="200" bgcolor="#c2c2c2"><?php echo __('枚数'); ?></td>
 		<td width="800">
-			<?php echo h($application['Application']['quantity']); ?>
+			<?php echo h($application['Application']['quantity'].' 枚'); ?>
 			&nbsp;
 		</td>
 		</tr>
@@ -75,7 +76,7 @@
 	<ul>
 		<!-- <li><?php //echo $this->Html->link(__('Edit Application'), array('action' => 'edit', $application['Application']['id'])); ?> </li> -->
 		<!-- <li><?php //echo $this->Form->postLink(__('Delete Application'), array('action' => 'delete', $application['Application']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $application['Application']['id']))); ?> </li>  -->
-		<li><?php echo $this->Html->link(__('申し込み一覧に戻る'), array('controller' => 'applications','action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('申し込み一覧に戻る'), array('controller' => 'applications','action' => 'index',$application['Ticket']['event_id'])); ?> </li>
 		<!-- <li><?php //echo $this->Html->link(__('New Application'), array('action' => 'add')); ?> </li>  -->
 		<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li>  -->
 		<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li>  -->
