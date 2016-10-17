@@ -75,7 +75,7 @@
 	<ul>
 		<!-- <li><?php //echo $this->Html->link(__('Edit Application'), array('action' => 'edit', $application['Application']['id'])); ?> </li> -->
 		<!-- <li><?php //echo $this->Form->postLink(__('Delete Application'), array('action' => 'delete', $application['Application']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $application['Application']['id']))); ?> </li>  -->
-		<li><?php echo $this->Html->link(__('申し込み一覧に戻る'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('申し込み一覧に戻る'), array('controller' => 'applications','action' => 'index')); ?> </li>
 		<!-- <li><?php //echo $this->Html->link(__('New Application'), array('action' => 'add')); ?> </li>  -->
 		<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li>  -->
 		<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li>  -->
