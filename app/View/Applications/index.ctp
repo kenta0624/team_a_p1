@@ -54,6 +54,7 @@
 	<tr>
 		   <th>申し込みID</th>
 			<th>チケットID</th>
+		    <th>チケット名</th>
 			<th>枚数</th>
 			<th>申込者名</th>
 			<th>tel</th>
@@ -83,6 +84,7 @@
 		</td> -->
 		<td><?php echo h($application['Application']['id']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['ticket_id']); ?>&nbsp;</td>
+		<td><?php echo h($application['Ticket']['ticket_name']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['quantity']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['customer_name']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['tel']); ?>&nbsp;</td>
@@ -131,42 +133,66 @@
 		<?php
 		$priceall = 0;
 		$price = 0;
+		$ticket_price =0;
 		$countall =0;
 		$count = 0;
 		$tid = 0;
 		$i = 0;
 		$tname ="";
-		asort($application,$application['Application']['ticket_id']);
-		foreach ($application as $ticket):
-		 //foreach ($application as $application):
+		arsort($applications);
+		var_dump($applications);
+		//foreach ($application as $ticket):
+		foreach ($applications as $application):
+
 			 //var_dump($application);
 
 			if($application['Application']['ticket_id'] != $tid){
-			 ?>
-				<?php
-				if($i != 0){ ?>
-					<tr>
-					<td><?php echo $tname ?> </td>
-					<td><?php echo $count; ?></td>
-					<?php //$price = $application['Application']['quantity'] * ($application['Ticket']['price']); ?>
-					<?php $price = $count * ($application['Ticket']['price']); ?>
-					<td> <?php echo $price;  ?> </td>
-					<?php $count = 0; ?>
-				<?php }
+		?>
+		<?php
+			if($application !== reset($applications)){
+		?>
+		<tr>
+			<td><?php echo $tname ?> </td>
+			<td><?php echo $count; ?></td>
+			<?php //$price = $application['Application']['quantity'] * ($application['Ticket']['price']);
+			?>
+			<?php $price = $count * $ticket_price; ?>
+			<td> <?php echo $price; ?> </td>
+			<?php $count = 0;
+			$ticket_price = 0;
+			$price = 0;
+			?>
+			<?php }
 
-			} ?>
+			}
+
+			?>
+			</tr>
+
+
 
 			<!-- <?php // $price =$application['Application']['quantity'] * ($application['Ticket']['price']); ?> -->
 			<!-- <td> <?php  //echo $price;  ?> </td>  -->
 			<!-- <td><?php // echo h($application['Ticket']['price']); ?></td>  -->
 			<!-- <td><?php //echo array_sum($ticket['Ticket']['quantity']); ?></td> -->
-			<?php $count += $application['Application']['quantity'];?>
+			<?php $count = $count + $application['Application']['quantity'];?>
 			<?php $tname = $application['Ticket']['ticket_name']; ?>
-			<?php $countall += $application['Application']['quantity'];  ?>
+			<?php $countall =  $countall  + $application['Application']['quantity'];  ?>
 
-			<?php $priceall += $application['Application']['quantity'] * ($application['Ticket']['price']); ?>
+			<?php $ticket_price =$application['Ticket']['price'];?>
+			<?php $priceall = $priceall +  ($application['Application']['quantity'] * ($application['Ticket']['price'])); ?>
 			<?php $id = $application['Application']['ticket_id']; ?>
 			<?php $i = $i + 1 ; ?>
+
+
+			<?php if ($application == end($applications)) { ?>
+				<tr>
+				<td><?php echo $tname ?> </td>
+				<td><?php echo $count; ?></td>
+				<?php $price = $count * $ticket_price; ?>
+				<td> <?php echo $price; ?> </td>
+				</tr>
+			<?php }  ?>
 
 
 		<?php 	endforeach; ?>
