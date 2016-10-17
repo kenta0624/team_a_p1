@@ -139,8 +139,7 @@
 		$tid = 0;
 		$i = 0;
 		$tname ="";
-		arsort($applications);
-		var_dump($applications);
+		//var_dump($applications);
 		//foreach ($application as $ticket):
 		foreach ($applications as $application):
 
