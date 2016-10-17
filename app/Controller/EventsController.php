@@ -23,8 +23,12 @@ class EventsController extends AppController {
  * @return void
  */
 	public function index() {
+
+	    $this->loadModel('User');
+        $userId = $this->User->getUserId() ;
+
 		$this->Event->recursive = 0;
-		$this->set('events', $this->Paginator->paginate());
+		$this->set('events', $this->Paginator->paginate(array('Event.user_id' => $userId)));
 	}
 
 /**

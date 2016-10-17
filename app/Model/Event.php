@@ -27,7 +27,7 @@ class Event extends AppModel
      *  抽出条件にuser_idを追加する処理。2016/10/12 片塩
      */
 
-    public function beforeFind($query)
+/*    public function beforeFind($query)
     {
         if(is_null(AuthComponent::user())){
             return $query;
@@ -37,7 +37,7 @@ class Event extends AppModel
             $query['conditions'][$this->alias . '.user_id'] = $user->getUserId();
             return $query;
         }
-    }
+    }*/
 
 
     /**
