@@ -5,7 +5,7 @@
         <h2>Add New Event</h2>
 
         <!-- ユーザー入力情報 タイトル＆表 -->
-        <?php echo $this->Form->create('Event', array('label' => false,'type' => 'file')); ?>
+        <?php echo $this->Form->create('Event', array('id' => 'Event', 'label' => false, 'type' => 'file')); ?>
 
         <table class="type03" width="1000">
             <tr>
@@ -19,7 +19,6 @@
             <tr>
                 <th>イベント画像</th>
                 <td>
-                    <!-- <div class="button3">ファイル形式 jpg (1000px X 400px) <a class="button4" href="#">参照</a></div> -->
                     <?php echo $this->Form->input('file',
                         array(
                             'type' => 'file',
@@ -32,7 +31,6 @@
             <tr>
                 <th>詳細</th>
                 <td>
-                    <!-- <input type="text"> -->
                     <?php echo $this->Form->input('detail', array('label' => false)); ?>
                     <span class="moji">※000文字以内</span>
                 </td>
@@ -72,11 +70,21 @@
         </table>
 
         <!-- ボタン -->
-        <div class="button2"><div class="button"><?php echo $this->Html->link('イベント一覧に戻る',array('action' => 'index')); ?></div></div>
+        <div class="button2">
+            <div class="button"><?php echo $this->Html->link('イベント一覧に戻る', array('action' => 'index')); ?></div>
+        </div>
 
-
-        <!-- <div class="button6"> <a class="button5" href="#">保存</a></div> -->
-        <div class="button2"><?php echo $this->Form->submit('登録'); ?></div>
+        <div class="button2">
+            <div class="button">
+            <?php
+            echo $this->Html->link(
+                '登録',
+                'javascript:void(0)',
+                array('onclick' => 'FormSubmit(\'Event\')')
+            );
+            ?>
+            </div>
+        </div>
 
         <?php echo $this->Form->end(); ?>
 
