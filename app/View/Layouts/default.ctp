@@ -9,12 +9,15 @@
     echo $this->Html->meta('icon');
 
 
+    /* jQuery */
+    echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js');
+
     /* team_a.css,team_a.js　を読み込むための記述 */
     echo $this->Html->css('team_a');
     echo $this->Html->script('team_a');
 
 
-
+    /*  */
     echo $this->fetch('meta');
     echo $this->fetch('css');
     echo $this->fetch('script');
