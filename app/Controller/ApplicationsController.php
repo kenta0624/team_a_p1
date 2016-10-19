@@ -82,9 +82,6 @@ class ApplicationsController extends AppController
             $newApplication = $this->Application->save($this->request->data);
             if (is_array($newApplication)) {
 
-                $this->log($newApplication, 'debug');
-                $this->log($newApplication, $newApplication['Application']['id']);
-
                 return $this->redirect(array('action' => 'added', $newApplication['Application']['id']));
             } else {
                 $this->Flash->error(__('The application could not be saved. Please, try again.'));
