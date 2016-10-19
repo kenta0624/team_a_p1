@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <th>枚数</th>
-            <td><?php echo $application['Application']['quantity']; ?>枚</td>
+            <td><?php echo $application['Application']['quantity']; ?><span class="moji2">枚</span></td>
         </tr>
         <tr>
             <th>料金</th>

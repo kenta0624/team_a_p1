@@ -1,51 +1,14 @@
 <style type="text/css">
-	thead {
-		background-color: #c2c2c2;
-		}
-	#header2{
-		background-color: #c2c2c2;
-	}
-	#table1 {
-
-	}
-	.button {
-		display: inline-block;
-		width: 200px;
-		height: 54px;
-		text-align: center;
-		text-decoration: none;
-		line-height: 54px;
-		outline: none;
-		background-color: #333;
-		color: #fff;
-	}
-	.button::before,
-	.button::after {
-		position: absolute;
-		z-index: -1;
-		display: block;
-		content: '';
-	}
-	.button,
-	.button::before,
-	.button::after {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		-webkit-transition: all .3s;
-		transition: all .3s;
-	}
-	.button:hover {
-		background-color: #59b1eb;
-	}
-
 
 </style>
 
-
+<?php  //$this->log($applications); ?>
 <div id="header">
+<h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3><br>
 
-<h1><?php echo '申し込み一覧'; ?></h1><br>
+
+<h1><?php echo '申し込み一覧'; ?></h1>
+<h2><?php echo __('Application List'); ?></h2><br>
 
 </div>
 
@@ -90,7 +53,8 @@
 		<td><?php echo h($application['Application']['quantity']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['customer_name']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['tel']); ?>&nbsp;</td>
-		<td><?php echo h($application['Application']['email']); ?>&nbsp;</td>
+		<td><?php echo h($application['Application']['email']); ?></td>
+
 		<!-- <td><?php //echo h($application['Application']['created']); ?></td> -->
 		<?php $date = $application['Application']['created']; ?>
 		<td><?php echo date('Y-m-d',strtotime($date)); ?></td>
@@ -199,15 +163,19 @@
 
 	</table>
 
-</div>
+</div><br>
 
 
 <div class="actions">
 	<!-- <h3><?php //echo __('Actions'); ?></h3>  -->
 	<!--<ul> -->
 		<!-- <li><?php //echo $this->Html->link(__('New Application'), array('action' => 'add')); ?></li> -->
-		<li><?php echo $this->Html->link(__('イベント一覧に戻る'), array('controller' => 'Events', 'action' => 'index')); ?> </li>
-		<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
+<div class="button">
+<div class="button2"><?php echo $this->Html->link(__('イベント一覧に戻る'),
+		  array('controller' => 'Events', 'action' => 'index')); ?> </div>
+</div>
+
+<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
 		<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li> -->
 	<!-- </ul> -->
 
