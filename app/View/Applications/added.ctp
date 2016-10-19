@@ -6,7 +6,7 @@
     </header>
     <!-- 申し込み完了致しました。 -->
     <div class="mousikomi">
-        <p>沖縄フェスタ　の申し込みを完了致しました。</p>
+        <p><?php echo $application['Ticket']['Event']['title']; ?>　の申し込みを完了致しました。</p>
         <p>申し込み番号は　<?php echo $application['Application']['id']; ?>　です。</p>
     </div>
     <!-- 見出し -->
