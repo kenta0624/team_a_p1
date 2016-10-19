@@ -9,6 +9,11 @@ body {
 
 }
 
+#container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
 /* header部分 */
 header {
 	width: 1000px;
@@ -93,20 +98,26 @@ h2 {
 
 }
 
-/* 表の中のボタン */
+/* 表内のボタン */
 .button3 {
 	float: left;
 	margin: 0 10px 0 0 ;
 }
 
 .button4 {
+	line-height: 32px;
+	font-weight: bold;
 	display: inline-block;
 	width: 110px;
 	height: 30px;
 	text-align: center;
 	text-decoration: none;
-	line-height: 32px;
 	outline: none;
+	position: relative;
+	z-index: 2;
+	border: 2px solid #000000;
+	color: #ffffff;
+
 }
 .button4::before,
 .button4::after {
@@ -126,16 +137,28 @@ h2 {
 }
 
 .button4 {
-	background-color: #d5d5d5;
-}
+	position: relative;
+	z-index: 2;
+	background-color: #ffffff;
 
-.button4 a {
+	color: #000000;
+
+	overflow: hidden;
+}
+.button4:hover a {
 	color: #ffffff;
 }
-
-.button4:hover {
-	background-color: #333333;
+.button4::after {
+	top: -100%;
+	width: 100%;
+	height: 100%;
 }
+.button4:hover::after {
+	top: 0;
+	background-color: #000000;
+
+}
+
 
 /* イベント一覧表 */
 

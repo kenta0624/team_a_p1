@@ -1,7 +1,9 @@
-<div class="header2">
+<div class="wrapper">
+
+<header>
     <h1><?php echo $eventInfo['Event']['title']; ?></h1>
     <!--<h2>Event</h2>-->
-</div>
+</header>
 
 <div class="event_img">
     <img src=<?php echo "/team_a_p1/app/webroot/img/".$eventInfo['Event']['image'];?>>
@@ -11,9 +13,9 @@
 
 <?php echo $this->Form->create('Application'); ?>
 
-<table class="type03">
+<table class="type03" width="1000">
     <tr>
-        <th>チケット</th>
+        <th width="150">チケット</th>
         <td>
             <?php echo $this->Form->input('ticket_id', array('type' => 'select', 'label' => false)); ?>
         </td>
@@ -23,8 +25,7 @@
         <th>枚数</th>
         <td>
             <?php echo $this->Form->input('quantity', array('label' => false,'value' => 1,'min' => 1)); ?>
-           枚<br>
-            ※　１行に表示できるようにする。textboxをinline要素にすればいい？（千葉さん）<br>
+           <span class="moji2">枚</span>
         </td>
     </tr>
 
@@ -42,9 +43,9 @@
 </table>
 
 
-<table class="type03">
+<table class="type03" width="1000">
     <tr>
-        <th>氏名</th>
+        <th width="150">氏名</th>
         <td><?php echo $this->Form->input('customer_name', array('label' => false)); ?></td>
     </tr>
     <tr>
@@ -61,7 +62,7 @@
 <?php echo $this->Form->end('申し込む'); ?>
 
 
-
+</div>
 
 
 

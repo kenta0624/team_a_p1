@@ -1,9 +1,9 @@
-<div class="events index">
+<div class="wrapper">
 
-    <div class="header2">
+    <header>
         <h1>イベント一覧</h1>
         <h2>Event List</h2>
-    </div>
+    </header>
 
 
     <table class="type03" width="1000">
