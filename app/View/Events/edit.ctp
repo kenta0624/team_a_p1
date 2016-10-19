@@ -73,7 +73,13 @@
 
 
         <!--<div class="button6"> <a class="button5" href="#">編集</a></div>-->
-        <div class="button6"><?php echo $this->Form->submit('登録'); ?></div>
+        <div class="button2"> <div class="button"><?php
+                echo $this->Html->link(
+                    '登録',
+                    'javascript:void(0)',
+                    array('onclick' => 'FormSubmit(\'Event\')')
+                );
+                ?></div></div>
 
         <?php echo $this->Form->end(); ?>
 
