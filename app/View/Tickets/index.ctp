@@ -38,5 +38,5 @@
 
     <!-- ボタン -->
     <?php echo $this->Html->link(__('新規チケット追加'), array('action' => 'add', $id), array('class' => 'button')); ?>
-    <?php echo $this->Html->link(__('イベント一覧'), array('controller' => 'events','action' => 'index', $id), array('class' => 'button')); ?>    /* 2016/10/20 katashio*/
+    <?php echo $this->Html->link(__('イベント一覧'), array('controller' => 'events','action' => 'index'), array('class' => 'button'));    /* 2016/10/20 katashio*/ ?>
 </div>
