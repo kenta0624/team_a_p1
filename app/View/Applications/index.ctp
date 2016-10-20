@@ -21,8 +21,8 @@
 		    <th>チケット名</th>
 			<th>枚数</th>
 			<th>申込者名</th>
-			<th>tel</th>
-			<th>email</th>
+			<th>Tel</th>
+			<th>Email</th>
 			<th>申込日</th>
 			<th>詳細</th>
 
@@ -86,7 +86,7 @@
 	<table class="type03" width="1000">
 		<thead>
 		<tr id="header2">
-			<th>チケット</th>
+			<th>チケット種類</th>
 			<th>枚数</th>
 			<th>金額</th>
 		</tr>
@@ -178,5 +178,5 @@
 
 	<!-- <a class="button" href="#"><?php //echo $this->Html->link(__('イベント一覧に戻る'),
 			//array('controller' => 'Events', 'action' => 'index')); ?></a>  -->
-
+</div>
 

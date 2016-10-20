@@ -2,7 +2,7 @@
 
 </style>
 
-<div class="applications view">
+<div class="wrapper">
 <?php //$this->log($application,'debug'); ?>
 
 
@@ -16,15 +16,15 @@
 	<table class="type03" width="1000">
 
 		<tr>
-			<th > <?php echo __('申し込みid'); ?></th>
-			<td >
+			<th > <?php echo __('申し込みID'); ?></th>
+			<td>
 			<?php echo h($application['Application']['id']); ?>
 			&nbsp;
 			</td>
 		</tr>
 
 		<tr>
-			<th ><?php echo __('チケットid'); ?></th>
+			<th ><?php echo __('チケットID'); ?></th>
 			<td>
 				<?php echo h($application['Ticket']['id']); ?>
 
@@ -78,7 +78,7 @@
 
 	</table><br>
 
-</div>
+
 
 	<!-- <h3><?php //echo __('Actions'); ?></h3> -->
 	<!-- <ul>  -->
@@ -93,3 +93,4 @@
 		<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li>  -->
 		<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li>  -->
 	<!-- </ul> -->
+</div>
