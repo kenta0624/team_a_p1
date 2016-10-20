@@ -1,3 +1,12 @@
+body {
+    font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
+}
+
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
 .wrapper {
     width: 1000px;
     margin: 0 auto;
@@ -23,8 +32,12 @@ h2 {
 }
 
 h3 {
-    float: left;
-    font-size: 35px;
+    /* float: left;  */
+    /* font-size: 35px; */
+    font-size: 25px;
+    padding: .05em 0 .10em .55em;
+    border-left: 6px solid #d5d5d5;
+    margin: 40px 0 0 0;
 }
 
 .total{
@@ -43,7 +56,7 @@ h3 {
     font-size: 20px;
     font-weight: bold;
     display: inline-block;
-    width: 180px;
+    width: 200px;
     height: 40px;
     text-align: center;
     text-decoration: none;
