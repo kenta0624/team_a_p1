@@ -74,8 +74,8 @@
             <div class="button"><?php echo $this->Html->link('イベント一覧に戻る', array('action' => 'index')); ?></div>
         </div>
 
-        <div class="button2">
-            <div class="button">
+        <div class="button4">
+            <div class="button3">
             <?php
             echo $this->Html->link(
                 '登録',

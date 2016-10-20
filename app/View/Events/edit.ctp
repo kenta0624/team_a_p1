@@ -9,7 +9,7 @@
     <?php echo $this->Form->input('id'); ?>　
     <table class="type03" width="1000">
         <tr>
-            <th width="100">イベント名</th>
+            <th width="290">イベント名</th>
             <td>
                 <?php echo $this->Form->input('title', array('label' => false)); ?>
                 <span class="moji">※000文字以内</span>
@@ -41,7 +41,7 @@
 
         <tr>
             <th>詳細</th>
-            <td>
+            <td width="">
                 <script src="//cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
 
                 <?php echo $this->Form->textarea('detail', array('class' => 'ckeditor')); ?>
@@ -86,8 +86,8 @@
         <div class="button"><?php echo $this->Html->link('イベント一覧に戻る', array('action' => 'index')); ?></div>
     </div>
 
-    <div class="button2">
-        <div class="button">
+    <div class="button4">
+        <div class="button3">
             <?php
             echo $this->Html->link(
                 '登録',
@@ -100,8 +100,8 @@
 
     <?php echo $this->Form->end(); ?>
 
-    <div class="button2">
-        <div class="button">
+    <div class="button4">
+        <div class="button3">
             <?php
             echo $this->Form->postLink(
                 '削除',
