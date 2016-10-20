@@ -23,9 +23,9 @@
         <tbody>
         <?php foreach ($events as $event): ?>
             <tr>
-                <td><?php echo h($event['Event']['id']); ?>&nbsp;</td>
-                <td><?php echo h($event['Event']['title']); ?>&nbsp;</td>
-                <td><?php echo h($event['Event']['detail']); ?>&nbsp;</td>
+                <td><?php echo h($event['Event']['id']); ?></td>
+                <td><?php echo h($event['Event']['title']); ?></td>
+                <td><?php echo $event['Event']['detail']; ?></td>
                 <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('イベント編集'), array('controller' => 'events', 'action' => 'edit', $event['Event']['id'])); ?></div></div></td>
                 <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('チケット編集'), array('controller' => 'tickets', 'action' => 'index', $event['Event']['id'])); ?></div></div></td>
                 <td><div class="button3"> <div class="button4"><?php echo $this->Html->link(('申し込み画面'), array('controller' => 'applications', 'action' => 'add', $event['Event']['id']),array('target' => '_blank')); ?></div></div></td>

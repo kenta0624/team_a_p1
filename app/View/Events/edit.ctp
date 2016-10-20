@@ -29,8 +29,12 @@
         <tr>
             <th>詳細</th>
             <td>
+                <script src="//cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+
+                <?php echo $this->Form->textarea('detail', array('class' => 'ckeditor')); ?>
+
                 <!--<input type="text"><span class="moji">※000文字以内</span>-->
-                <?php echo $this->Form->input('detail', array('label' => false)); ?>
+                <?php //echo $this->Form->input('detail', array('label' => false)); ?>
                 <span class="moji">※000文字以内</span></td>
             </td>
         </tr>
