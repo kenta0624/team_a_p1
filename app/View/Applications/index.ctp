@@ -169,7 +169,7 @@
 
 <div class="button2">
 	<div class="button"><?php echo $this->Html->link(__('イベント一覧に戻る'),
-		  array('controller' => 'Events', 'action' => 'index','style'=>'text-decoration:none')); ?> </div>
+		  array('controller' => 'Events', 'action' => 'index')); ?> </div>
 </div>
 
 <!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
