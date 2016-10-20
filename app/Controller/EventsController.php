@@ -62,14 +62,10 @@ class EventsController extends AppController {
              * */
             $data = $this->request->data;
             $saved = $this->Event->save($data);
-
-            $this->log($saved,'debug');
-
             $saved['Event']['image'] = 'event_image_'.$saved['Event']['id'].'_1.jpg';
             move_uploaded_file($saved['Event']['file']['tmp_name'],'img/event_image_'.$saved['Event']['id'].'_1.jpg');
 
             $saved = $this->Event->save($saved);
-
 
 			if ($saved) {
 				$this->Flash->success(__('The event has been saved.'));

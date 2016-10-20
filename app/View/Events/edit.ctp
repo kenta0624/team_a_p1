@@ -4,9 +4,9 @@
         <h1>イベント編集</h1>
         <h2>Event Edit</h2>
     </header>
-        <!-- ユーザー入力情報 タイトル＆表 -->
-        <?php echo $this->Form->create('Event', array('type' => 'file', 'id' => 'Event')); ?>
-        <?php echo $this->Form->input('id'); ?>　
+    <!-- ユーザー入力情報 タイトル＆表 -->
+    <?php echo $this->Form->create('Event', array('type' => 'file', 'id' => 'Event')); ?>
+    <?php echo $this->Form->input('id'); ?>　
     <table class="type03" width="1000">
         <tr>
             <th width="100">イベント名</th>
@@ -15,17 +15,30 @@
                 <span class="moji">※000文字以内</span>
             </td>
         </tr>
+
         <tr>
-            <th>イベント画像</th>
+            <th>現在のイベント画像</th>
             <td>
-                <?php echo $this->Form->input('file',
+                <?php
+                echo $this->Html->image($this->request->data['Event']['image'])
+                ?>
+            </td>
+        </tr>
+
+        <tr>
+            <th>新しいイベント画像</th>
+            <td>
+                <?php
+                echo $this->Form->input('file',
                     array(
                         'type' => 'file',
                         'label' => false,
+                        'id' => 'file'
                     ));
                 ?>
             </td>
         </tr>
+
         <tr>
             <th>詳細</th>
             <td>
