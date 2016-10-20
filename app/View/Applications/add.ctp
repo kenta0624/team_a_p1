@@ -82,11 +82,11 @@
 
 
 
-    <div class="button2">
+    <div class="button2" align="center">
         <div class="button">
             <?php
             echo $this->Html->link(
-                '申し込む',
+                'この内容で申し込む',
                 'javascript:void(0)',
                 array('onclick' => 'FormSubmit(\'Application\')')
             );
