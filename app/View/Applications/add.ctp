@@ -62,6 +62,7 @@
 
 </table>
 
+<h4>お客様情報</h4>
 
 <table class="type03" width="1000">
     <tr>
