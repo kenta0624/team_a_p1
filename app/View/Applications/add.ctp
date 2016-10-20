@@ -79,8 +79,21 @@
 </table>
 
 
-<?php echo $this->Form->end('申し込む'); ?>
 
+
+
+    <div class="button2">
+        <div class="button">
+            <?php
+            echo $this->Html->link(
+                '申し込む',
+                'javascript:void(0)',
+                array('onclick' => 'FormSubmit(\'Application\')')
+            );
+            ?>
+            <?php echo $this->Form->end(); ?>
+        </div>
+    </div>
 
 </div>
 

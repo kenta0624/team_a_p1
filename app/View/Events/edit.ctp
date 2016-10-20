@@ -4,7 +4,7 @@
         <h1>イベント編集</h1>
         <h2>Event Edit</h2>
         <!-- ユーザー入力情報 タイトル＆表 -->
-        <?php echo $this->Form->create('Event',array('type' => 'file')); ?>
+        <?php echo $this->Form->create('Event',array('type' => 'file','id' => 'Event')); ?>
 
         <?php echo $this->Form->input('id'); ?>　
 
