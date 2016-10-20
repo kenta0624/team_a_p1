@@ -31,6 +31,7 @@ h3 {
 .button2 {
     margin: 20px 0 0 0;
     float: right;
+    text-decoration: none;
 }
 
 .button {
@@ -114,3 +115,10 @@ table.type03 td {
     vertical-align: top;
     border-right: 2px solid #d5d5d5;
     border-bottom: 2px solid #d5d5d5;
+}
+
+/*  これを入れたらlinkのアンダーラインが消えた*/
+a {
+    text-decoration: none;
+    color: #000000;
+}

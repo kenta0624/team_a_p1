@@ -152,12 +152,12 @@
 		<?php 	endforeach; ?>
 
 
-		<tr>
+		<tr class="total">
 			<td>申し込み枚数  合計</td>
 			<td><?php echo $countall.' 枚'; ?></td>
 			<td><?php echo number_format($priceall).' 円'; ?></td>
-
 		</tr>
+
 		</tbody>
 
 	</table><br>
