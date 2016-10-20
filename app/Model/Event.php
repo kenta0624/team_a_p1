@@ -121,7 +121,7 @@ class Event extends AppModel
         'Ticket' => array(
             'className' => 'Ticket',
             'foreignKey' => 'event_id',
-            'dependent' => false,
+            'dependent' => true,
             'conditions' => '',
             'fields' => '',
             'order' => '',
@@ -129,7 +129,7 @@ class Event extends AppModel
             'offset' => '',
             'exclusive' => '',
             'finderQuery' => '',
-            'counterQuery' => ''
+            'counterQuery' => '',
         )
     );
 

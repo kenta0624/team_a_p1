@@ -61,7 +61,7 @@ class User extends AppModel
         'Event' => array(
             'className' => 'Event',
             'foreignKey' => 'user_id',
-            'dependent' => false,
+            'dependent' => true,
             'conditions' => '',
             'fields' => '',
             'order' => '',

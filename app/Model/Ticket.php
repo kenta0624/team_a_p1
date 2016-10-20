@@ -89,7 +89,7 @@ class Ticket extends AppModel {
 		'Application' => array(
 			'className' => 'Application',
 			'foreignKey' => 'ticket_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
