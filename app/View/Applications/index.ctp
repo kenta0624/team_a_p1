@@ -152,12 +152,12 @@
 		<?php 	endforeach; ?>
 
 
-		<tr>
+		<tr class="total">
 			<td>申し込み枚数  合計</td>
 			<td><?php echo $countall.' 枚'; ?></td>
 			<td><?php echo number_format($priceall).' 円'; ?></td>
-
 		</tr>
+
 		</tbody>
 
 	</table><br>
@@ -169,7 +169,7 @@
 
 <div class="button2">
 	<div class="button"><?php echo $this->Html->link(__('イベント一覧に戻る'),
-		  array('controller' => 'Events', 'action' => 'index')); ?> </div>
+		  array('controller' => 'Events', 'action' => 'index','style'=>'text-decoration:none')); ?> </div>
 </div>
 
 <!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->

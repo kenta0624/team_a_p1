@@ -85,8 +85,8 @@
 		<!-- <li><?php //echo $this->Html->link(__('Edit Application'), array('action' => 'edit', $application['Application']['id'])); ?> </li> -->
 		<!-- <li><?php //echo $this->Form->postLink(__('Delete Application'), array('action' => 'delete', $application['Application']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $application['Application']['id']))); ?> </li>  -->
 <div class="button2">
-	<div class="button"><?php echo $this->Html->link(__('申し込み一覧に戻る'),
-		array('controller' => 'applications','action' => 'index',$application['Ticket']['event_id'])); ?> </div>
+	<div class="button"><?php echo $this->Html->link(('申し込み一覧に戻る'),
+		array('controller' => 'applications','action' => 'index',$application['Ticket']['event_id'],'style'=>'text-decoration:none' )); ?> </div>
 </div>
 
 		<!-- <li><?php //echo $this->Html->link(__('New Application'), array('action' => 'add')); ?> </li>  -->
