@@ -84,7 +84,7 @@
         <div class="button">
             <?php
 
-            if ($eventInfo['Event']['start_date'] <= time() && time() <= $eventInfo['Event']['start_date']) {
+            if ($start <= $now && $now <= $end) {
                 echo $this->Html->link(
                     'この内容で申し込む',
                     'javascript:void(0)',
