@@ -1,20 +1,19 @@
 <style type="text/css">
-
 </style>
 
+<div class="wrapper">
+
 <?php  //$this->log($applications); ?>
-<div id="header">
+
+<header>
+	<h1> 申し込み一覧</h1>
+	<h2>Application List</h2>
+	<!-- <h2><?php //echo __('Application List'); ?></h2> -->
+</header>
+
 <h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3><br>
 
-
-<h1><?php echo '申し込み一覧'; ?></h1>
-<h2><?php echo __('Application List'); ?></h2><br>
-
-</div>
-
-<div class="applications index">
-	<!-- <h2><?php //echo __('Applications'); ?></h2>  -->
-	<table id="table1"  border="1" width="1000">
+<table class="type03" width="1000">
 	<thead>
 	<tr>
 		   <th>申し込みID</th>
@@ -65,37 +64,36 @@
 			<?php //echo $this->Html->link(__('Edit'), array('action' => 'edit', $application['Application']['id'])); ?>
 			<?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $application['Application']['id']),
 			     //array('confirm' => __('Are you sure you want to delete # %s?', $application['Application']['id']))); ?> -->
-
-
-
 		</td>
 	</tr>
 	<?php endforeach; ?>
 	</tbody>
-	</table>
-	<p>
+	</table><br>
+
 	<?php
 	//echo $this->Paginator->counter(array(
 	//	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	//));
-	?>	</p>
-	<div class="paging">
+	?>
+
 	<?php
 		//echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
 		//echo $this->Paginator->numbers(array('separator' => ''));
 		//echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
-	</div>
 
-	<table id="table2" border="1" width="1000">
 
+	<table class="type03" width="1000">
+		<thead>
 		<tr id="header2">
 			<th>チケット</th>
 			<th>枚数</th>
 			<th>金額</th>
 		</tr>
+		</thead>
 
 
+		<tbody>
 		<?php
 		$priceall = 0;
 		$price = 0;
@@ -160,18 +158,17 @@
 			<td><?php echo number_format($priceall).' 円'; ?></td>
 
 		</tr>
+		</tbody>
 
-	</table>
-
-</div><br>
+	</table><br>
 
 
-<div class="actions">
 	<!-- <h3><?php //echo __('Actions'); ?></h3>  -->
 	<!--<ul> -->
 		<!-- <li><?php //echo $this->Html->link(__('New Application'), array('action' => 'add')); ?></li> -->
-<div class="button">
-<div class="button2"><?php echo $this->Html->link(__('イベント一覧に戻る'),
+
+<div class="button2">
+	<div class="button"><?php echo $this->Html->link(__('イベント一覧に戻る'),
 		  array('controller' => 'Events', 'action' => 'index')); ?> </div>
 </div>
 
@@ -181,4 +178,5 @@
 
 	<!-- <a class="button" href="#"><?php //echo $this->Html->link(__('イベント一覧に戻る'),
 			//array('controller' => 'Events', 'action' => 'index')); ?></a>  -->
-</div>
+
+
