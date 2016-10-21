@@ -112,7 +112,7 @@
 		  if($application['Application']['ticket_id'] != $tid && $application != end($applications)){
 			if($application != reset($applications)){ ?>
 				<tr>
-					<td><?php echo $tname ?> </td>
+					<td><?php echo $tid.': '.$tname ?> </td>
 					<td><?php echo $count.' 枚'; ?></td>
 					<?php //$price = $application['Application']['quantity'] * ($application['Ticket']['price']);
 					?>
@@ -129,7 +129,7 @@
 			               if($application['Application']['ticket_id'] != $tid && $application == end($applications)) {
 							   ?>
 							   <tr>
-								   <td><?php echo $tname ?> </td>
+								   <td><?php echo $tid.': '.$tname ?> </td>
 								   <td><?php echo $count . ' 枚'; ?></td>
 								   <?php $price = $count * $ticket_price; ?>
 								   <td> <?php echo number_format($price) . ' 円'; ?> </td>
@@ -159,7 +159,7 @@
 
 			<?php if ($application == end($applications)) { ?>
 						<tr>
-						<td><?php echo $tname ?> </td>
+						<td><?php echo $tid.': '.$tname ?> </td>
 						<td><?php echo $count.' 枚'; ?></td>
 						<?php $price = $count * $ticket_price; ?>
 						<td> <?php echo number_format($price).' 円'; ?> </td>
