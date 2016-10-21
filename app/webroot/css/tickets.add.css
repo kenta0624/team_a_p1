@@ -6,6 +6,12 @@ body {
     width: 1000px;
     margin: 0 auto;
 }
+
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
 /* header部分 */
 header {
     width: 1000px;
@@ -156,4 +162,9 @@ table.type03 td {
 
 .moji1 {
     color: #59b1eb;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
 }
