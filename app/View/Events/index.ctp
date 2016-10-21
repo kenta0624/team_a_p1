@@ -5,6 +5,25 @@
         <h2>Event List</h2>
     </header>
 
+    <!-- 検索 -->
+    <div align="right">
+        <?php echo $this->Form->create('Search',array('url'=>'index')); ?>
+        <dl class="search2">
+            <dt class="a1"><?php echo $this->Form->input('title', array('label' => false)); ?></dt>
+            <dd>
+                <button>
+                <?php
+                echo $this->Html->link(
+                    'Search',
+                    'javascript:void(0)',
+                    array('onclick' => 'FormSubmit(\'Event\')')
+                );
+                ?>
+                </button>
+            </dd>
+        </dl>
+        <?php echo $this->Form->end(); ?>
+    </div>
 
     <table class="type03" width="1000">
         <thead>
