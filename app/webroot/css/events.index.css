@@ -192,3 +192,36 @@ a {
 	text-decoration: none;
 	color: #000000;
 }
+
+/* 検索 */
+.a1 {
+	height: 25px;
+}
+
+dl.search2{
+	position:relative;
+	width: 250px;
+
+}
+dl.search2 dt{
+	margin-right:64px;
+	background-color:#fff;
+	border:2px solid #000000;
+	height: 25px;
+}
+
+dl.search2 dd{
+	position:absolute;
+	top:0;
+	right:0;
+}
+dl.search2 dd button{
+	display:block;
+	width:60px;
+	height:29px;
+	color:#000000;
+	line-height:20px;
+	text-align:center;
+	background-color:#fbfbfb;
+	border:2px solid #d5d5d5
+}

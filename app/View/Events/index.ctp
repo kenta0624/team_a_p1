@@ -5,6 +5,15 @@
         <h2>Event List</h2>
     </header>
 
+    <!-- 検索 -->
+    <div align="right">
+
+        <dl class="search2">
+            <dt class="a1"></dt>
+            <dd><button>Search</button></dd>
+        </dl>
+
+    </div>
 
     <table class="type03" width="1000">
         <thead>
