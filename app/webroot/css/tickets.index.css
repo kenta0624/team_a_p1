@@ -6,6 +6,12 @@ body {
     width: 1000px;
     margin: 0 auto;
 }
+
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
 /* header部分 */
 header {
     width: 1000px;
@@ -148,4 +154,9 @@ table.type03 td {
 .button1:active {
     top: 2px;
     box-shadow: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
 }

@@ -3,16 +3,12 @@
         <h1>新規チケット追加</h1>
         <h2><?php echo __('Ticket Add'); ?></h2>
     </header>
-    <h3>沖縄フェスタ</h3>
+    <h3><?php echo $eventTitle; ?></h3>
     <div class="tickets form">
         <?php echo $this->Form->create('Ticket', array('id' => 'Ticket')); ?>
         <!-- ユーザー入力情報 タイトル＆表 -->
         <table class="type03" width="1000">
             <?php echo $this->Form->input('id'); ?>
-            <tr>
-                <th>イベント名</th>
-                <td><?php echo $eventTitle; ?></td>
-            </tr>
             <tr>
                 <th>チケット名</th>
                 <td>
