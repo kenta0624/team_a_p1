@@ -99,14 +99,16 @@
 		$countall =0;
 		$count = 0;
 		$tid = 0;
+		$i =0;
 
 		$tname ="";
 		//var_dump($applications);
 
 		foreach ($applications as $application):
-			$this->log($application,'debug');
+		$i= $i +1;
+		//$this->log($application,'debug');
 		  if($application['Application']['ticket_id'] != $tid && $application != end($applications)){
-			if($application !== reset($applications)){ ?>
+			if($application != reset($applications)){ ?>
 				<tr>
 					<td><?php echo $tname ?> </td>
 					<td><?php echo $count.' 枚'; ?></td>
@@ -119,19 +121,24 @@
 					$price = 0;
 			}	?>
 				</tr>
+		<?php } ?>
 
-			<?php } ?>
-			<?php if($application['Application']['ticket_id'] != $tid ){
-				      if ($application == end($applications) && $application == reset($application)){ ?>
-			  			 <tr><td><?php echo $tname ?> </td>
-		       			<td><?php echo $count.' 枚'; ?></td>
-						<?php $price = $count * $ticket_price; ?>
-						<td> <?php echo number_format($price).' 円'; ?> </td></tr>
-			  			<?php $count = 0;
-						$ticket_price = 0;
-						$price = 0; ?>
-			<?php	 }
-			 	}?>
+				<?php  if($i != 1) {
+			               if($application['Application']['ticket_id'] != $tid && $application == end($applications)) {
+							   ?>
+							   <tr>
+								   <td><?php echo $tname ?> </td>
+								   <td><?php echo $count . ' 枚'; ?></td>
+								   <?php $price = $count * $ticket_price; ?>
+								   <td> <?php echo number_format($price) . ' 円'; ?> </td>
+							   </tr>
+							   <?php $count = 0;
+							   $ticket_price = 0;
+							   $price = 0;
+						   }
+
+
+						} ?>
 
 
 			<!-- <?php // $price =$application['Application']['quantity'] * ($application['Ticket']['price']); ?> -->
@@ -149,13 +156,14 @@
 
 
 			<?php if ($application == end($applications)) { ?>
-				<tr>
-					<td><?php echo $tname ?> </td>
-					<td><?php echo $count.' 枚'; ?></td>
-					<?php $price = $count * $ticket_price; ?>
-				<td> <?php echo number_format($price).' 円'; ?> </td>
-				</tr>
-			<?php }  ?>
+						<tr>
+						<td><?php echo $tname ?> </td>
+						<td><?php echo $count.' 枚'; ?></td>
+						<?php $price = $count * $ticket_price; ?>
+						<td> <?php echo number_format($price).' 円'; ?> </td>
+						</tr>
+			<?php
+					} ?>
 
 
 		<?php 	endforeach; ?>
