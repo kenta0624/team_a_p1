@@ -84,13 +84,19 @@
         <div class="button">
             <?php
 
+            $start = date_create($eventInfo['Event']['start_date']) ;
+            $end = date_create($eventInfo['Event']['end_date']);
+            $now = new DateTime();
+
             if ($start <= $now && $now <= $end) {
+                $this->log('この内容で申し込む','debug');
                 echo $this->Html->link(
                     'この内容で申し込む',
                     'javascript:void(0)',
                     array('onclick' => 'FormSubmit(\'Application\')')
                 );
             } else {
+                $this->log('申し込みできません','debug');
                 echo $this->Html->link(
                     '申し込みできません',
                     'javascript:void(0)',
@@ -98,10 +104,10 @@
                 );
             }
             ?>
-            <?php echo $this->Form->end(); ?>
+
         </div>
     </div>
-
+    <?php echo $this->Form->end(); ?>
 </div>
 
 
