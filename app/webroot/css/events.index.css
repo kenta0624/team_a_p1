@@ -225,3 +225,16 @@ dl.search2 dd button{
 	background-color:#fbfbfb;
 	border:2px solid #d5d5d5
 }
+
+.input.text {
+	height: 25px;
+}
+
+#SearchTitle {
+	position:absolute;
+	top:4px;
+	left:5px;
+	width: 175px;
+	height: 19px;
+	border-style: none;
+}
