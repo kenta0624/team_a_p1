@@ -41,8 +41,18 @@ class ApplicationsController extends AppController
     public function index($id)
     {
         $this->Application->recursive = 2;
-        $this->set('applications', $this->Application->find ('all',array('conditions' => array('Ticket.event_id' => $id))));
-
+        $this->set(
+            'applications',
+            $this->Application->find(
+                'all',
+                array(
+                    'conditions' => array(
+                        'Ticket.event_id' => $id
+                    ),
+                    'order' => 'Application.ticket_id'
+                )
+            )
+        );
     }
 
     /**
