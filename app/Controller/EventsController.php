@@ -27,8 +27,17 @@ class EventsController extends AppController {
 	    $this->loadModel('User');
         $userId = $this->User->getUserId() ;
 
-		$this->Event->recursive = 0;
-		$this->set('events', $this->Paginator->paginate(array('Event.user_id' => $userId)));
+        if ($this->request->is('post')) {
+            $title=$this->request->data['Search']['title'];
+            $data=$this->Paginator->paginate(array('title like'=>'%'.$title.'%',
+                'Event.user_id' => $userId));
+
+            $this->set('events',$data);
+        } else {
+            $this->Event->recursive = 0;
+            $this->set('events', $this->Paginator->paginate(array('Event.user_id' =>
+                $userId)));
+        }
 	}
 
 /**
