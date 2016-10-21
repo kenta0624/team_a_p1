@@ -3,22 +3,21 @@
         <h1>チケット編集</h1>
         <h2><?php echo __('Ticket Edit'); ?></h2>
     </header>
-    <h3>沖縄フェスタ</h3>
+
+    <!-- イベント名 -->
+    <h3><?php echo $data['Event']['title']; ?></h3>
+
     <!-- ユーザー入力情報 タイトル＆表 -->
     <div class="tickets form">
         <?php echo $this->Form->create('Ticket', array('id' => 'Ticket')); ?>
         <table class="type03" width="1000">
             <?php echo $this->Form->input('id'); ?>
+
             <tr>
-                <th>イベント名</th>
-                <td><?php echo $data['Event']['title']; ?></td>
-            </tr>
-            <tr>
-                <th>チケット名</th>
+                <th width="200">チケット名</th>
                 <td>
                     <!-- <input type="text" name="example1" size="30" value="沖縄フェスタ">　-->
                     <?php echo $this->Form->input('ticket_name', array('label' => false)); ?>
-                    <span class="moji1">※20文字以内</span>
                 </td>
             </tr>
             <tr>
@@ -32,20 +31,30 @@
                         'separator' => '/',
                         'label' => false
                     )); ?>
-                    <span class="moji1">※20文字以内</span>
                 </td>
             </tr>
             <tr>
                 <th>単価</th>
                 <td>
                     <!-- <input type="text" name="example1" size="30" value="１０，０００">　円 -->
-                    <?php echo $this->Form->input('price', array('label' => false)); ?>
+                    <?php echo $this->Form->input('price', array('label' => false)); ?><span class="moji1">円</span>
                 </td>
             </tr>
             <?php echo "<input type='hidden' name='event_id' value='" . $data['Event']['id'] . "'>"; ?>
         </table>
+
         <!-- ボタン -->
-        <div class="button4">
+            <div class="button5">
+                <?php echo $this->Html->link(
+                    __('チケット一覧に戻る'),
+                    array(
+                        'action' => 'index',
+                        $data['Event']['id']
+                    ),
+                    array('class' => 'button')
+                ); ?>
+            </div>
+
             <div class="button3">
                 <?php echo $this->Html->link(
                     '保存',
@@ -55,13 +64,11 @@
                         'class' => 'button'
                     )
                 ); ?>
-
             </div>
-        </div>
 
         <?php echo $this->Form->end(); ?>
-
     </div>
+
     <div class="button4">
         <div class="button3">
             <?php echo $this->Form->postLink(
@@ -77,17 +84,6 @@
             ); ?>
         </div>
     </div>
-    <div class="button4">
-        <div class="button3">
-            <?php echo $this->Html->link(
-                __('チケット一覧に戻る'),
-                array(
-                    'action' => 'index',
-                    $data['Event']['id']
-                ),
-                array('class' => 'button')
-            ); ?>
 
-        </div>
     </div>
 </div>

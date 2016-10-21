@@ -4,16 +4,16 @@
         <h1>新規イベント追加</h1>
         <h2>Add New Event</h2>
 
-        <!-- ユーザー入力情報 タイトル＆表 -->
+        <!-- 表 -->
         <?php echo $this->Form->create('Event', array('id' => 'Event', 'label' => false, 'type' => 'file')); ?>
 
         <table class="type03" width="1000">
             <tr>
-                <th width="100">イベント名</th>
+                <th width="290">イベント名</th>
                 <td>
                     <!-- <input type="text"> -->
                     <?php echo $this->Form->input('title', array('label' => false)); ?>
-                    <span class="moji">※000文字以内</span>
+
                 </td>
             </tr>
             <tr>
@@ -30,11 +30,17 @@
             </tr>
             <tr>
                 <th>詳細</th>
-                <td>
-                    <?php echo $this->Form->input('detail', array('label' => false)); ?>
-                    <span class="moji">※000文字以内</span>
+                <td width="">
+                    <script src="//cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+
+                    <?php echo $this->Form->textarea('detail', array('class' => 'ckeditor')); ?>
+
+                    <!--<input type="text"><span class="moji">※000文字以内</span>-->
+                    <?php //echo $this->Form->input('detail', array('label' => false)); ?>
+                </td>
                 </td>
             </tr>
+            <tr>
 
             <tr>
                 <th>公開開始</th>
@@ -65,8 +71,6 @@
                         )); ?>
                 </td>
             </tr>
-
-
         </table>
 
         <!-- ボタン -->

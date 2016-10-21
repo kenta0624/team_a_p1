@@ -1,3 +1,4 @@
+/* フォントと全体幅と中央寄せ */
 body {
 	font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
 }
@@ -6,6 +7,12 @@ body {
 	width: 1000px;
 	margin: 0 auto;
 }
+
+#container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
 /* header部分 */
 header {
 	width: 1000px;
@@ -30,16 +37,11 @@ h3 {
 	font-size: 25px;
 	padding: .05em 0 .10em .55em;
 	border-left: 6px solid #ccc;
-	margin: 20px 0 0 0;
-}
-
-h4 {
-	font-size: 25px;
-	padding: .05em 0 .10em .55em;
-	border-left: 6px solid #ccc;
 	margin: 30px 0 0 0;
 }
 
+
+/* 表 */
 table.type03 {
 
 	margin:  10px 0 0 0;
@@ -69,95 +71,13 @@ table.type03 td {
 	border-bottom: 2px solid #31c8aa;
 }
 
-.button1 {
-	margin:  20px 15px 0 670px;
-	display: inline-block;
-	width: 60px;
-	height: 30px;
-	text-align: center;
-	text-decoration: none;
-	line-height: 30px;
-	outline: none;
-}
-.button1::before,
-.button1::after {
-	position: absolute;
-	z-index: -1;
-	display: block;
-	content: '';
-}
-.button1,
-.button1::before,
-.button1::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all .3s;
-	transition: all .3s;
-}
-.button1 {
-	position: relative;
-	background-color: #dcdcdc;
-	border: 2px solid #31c8aa;
-	border-radius: 5px;
-	color: #333;
-	line-height:
-	transition: none;
-}
 
-.button1:active {
-	top: 2px;
-	box-shadow: none;
-}
-
-
-.button2 {
-	margin:  20px 0 0 0;
-	display: inline-block;
-	width: 60px;
-	height: 30px;
-	text-align: center;
-	text-decoration: none;
-	line-height: 30px;
-	outline: none;
-}
-.button2::before,
-.button2::after {
-	position: absolute;
-	z-index: -1;
-	display: block;
-	content: '';
-}
-.button2,
-.button2::before,
-.button2::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all .50s;
-	transition: all .50s;
-}
-.button2 {
-	position: relative;
-	background-color: #dcdcdc;
-	border: 2px solid #31c8aa;
-	border-radius: 5px;
-	color: #333;
-	line-height:
-	transition: none;
-}
-
-.button2:active {
-	top: 2px;
-	box-shadow: none;
-}
-
-
+/* 下ボタン */
 .button3 {
 	float: right;
 	margin:  20px 10px 0 0;
 	display: inline-block;
-	width: 160px;
+	width: 50px;
 	height: 30px;
 	text-align: center;
 	text-decoration: none;
@@ -187,7 +107,7 @@ table.type03 td {
 	border: 2px solid #31c8aa;
 	border-radius: 5px;
 	color: #333;
-	line-height:
+
 	transition: none;
 }
 
@@ -196,6 +116,67 @@ table.type03 td {
 	box-shadow: none;
 }
 
+
+.button5 {
+	float: right;
+	margin:  20px 0 0 0;
+	display: inline-block;
+	width: 160px;
+	height: 30px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 30px;
+	outline: none;
+}
+.button5::before,
+.button5::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.button5,
+.button5::before,
+.button5::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .50s;
+	transition: all .50s;
+}
+
+.button5 {
+	position: relative;
+	background-color: #dcdcdc;
+	border: 2px solid #31c8aa;
+	border-radius: 5px;
+	color: #333;
+
+	transition: none;
+}
+
+.button5:active {
+	top: 2px;
+	box-shadow: none;
+}
+
+/* 単価部分　円追加 */
+#TicketPrice {
+	float: left;
+}
+
 .moji1 {
-	color: #59b1eb;
+	float: left;
+	margin: 0 0 0 5px;
+}
+
+/* リンク文字 */
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* チケット名入力大きく */
+#TicketTicketName {
+	width: 750px;
 }

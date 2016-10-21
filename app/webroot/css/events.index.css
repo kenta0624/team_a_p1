@@ -35,7 +35,7 @@ h2 {
 
 
 
-/* 新規イベント追加ボタン (途中です)*/
+/* 新規イベント追加ボタン */
 .button2 {
 	margin: 20px 0 0 0;
 	float: right;
@@ -160,7 +160,7 @@ h2 {
 }
 
 
-/* イベント一覧表 */
+/* 表 */
 
 table.type03 {
 	margin: 10px 0 0 0;
@@ -188,6 +188,7 @@ table.type03 td {
 	border-bottom: 2px solid #d5d5d5;
 }
 
+/* リンク文字 */
 a {
 	text-decoration: none;
 	color: #000000;

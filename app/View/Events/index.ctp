@@ -1,5 +1,5 @@
 <div class="wrapper">
-
+    <!-- ヘッダー -->
     <header>
         <h1>イベント一覧</h1>
         <h2>Event List</h2>
@@ -25,6 +25,7 @@
         <?php echo $this->Form->end(); ?>
     </div>
 
+    <!-- 表 -->
     <table class="type03" width="1000">
         <thead>
         <tr>
@@ -35,8 +36,6 @@
             <th><?php echo 'チケット'; ?></th>
             <th><?php echo '申し込み画面'; ?></th>
             <th><?php echo '申し込み一覧'; ?></th>
-
-
         </tr>
         </thead>
         <tbody>
@@ -54,6 +53,7 @@
         </tbody>
     </table>
 
+    <!-- 新規イベント追加 -->
     <div class="button2">
         <div class="button"><?php echo $this->Html->link('新規イベント追加',array('action' => 'add')); ?>
     </div></div>

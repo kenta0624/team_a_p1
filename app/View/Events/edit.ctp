@@ -4,7 +4,8 @@
         <h1>イベント編集</h1>
         <h2>Event Edit</h2>
     </header>
-    <!-- ユーザー入力情報 タイトル＆表 -->
+
+    <!-- 表 -->
     <?php echo $this->Form->create('Event', array('type' => 'file', 'id' => 'Event')); ?>
     <?php echo $this->Form->input('id'); ?>　
     <table class="type03" width="1000">
@@ -12,7 +13,7 @@
             <th width="290">イベント名</th>
             <td>
                 <?php echo $this->Form->input('title', array('label' => false)); ?>
-                <span class="moji">※000文字以内</span>
+
             </td>
         </tr>
 
@@ -48,7 +49,7 @@
 
                 <!--<input type="text"><span class="moji">※000文字以内</span>-->
                 <?php //echo $this->Form->input('detail', array('label' => false)); ?>
-                <span class="moji">※000文字以内</span></td>
+                  </td>
             </td>
         </tr>
         <tr>
@@ -112,4 +113,6 @@
 
         </div>
     </div>
+
+
 </div>

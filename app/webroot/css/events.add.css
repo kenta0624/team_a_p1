@@ -33,7 +33,7 @@ h2 {
 	color: #d5d5d5;
 }
 
-/* イベント一覧に戻るボタン (途中です)*/
+/* イベント一覧に戻るボタン */
 .button2 {
 	margin: 20px 0 0 10px;
 	float: right;
@@ -95,7 +95,7 @@ h2 {
 	background-color: #000000;
 }
 
-/* */
+/* 登録ボタン */
 .button4 {
 	margin: 20px 0 0 10px;
 	float: right;
@@ -157,7 +157,7 @@ h2 {
 	background-color: #000000;
 }
 
-/* イベント一覧表 */
+/* 表 */
 
 table.type03 {
 	margin: 10px 0 0 0;
@@ -185,25 +185,27 @@ table.type03 td {
 	border-bottom: 2px solid #d5d5d5;
 }
 
-
-
-.moji {
-	font-size: 13px;
-	color: #3ccaff;
-
-	float: right;
-
-}
-
+/* リンク文字 */
 a {
 	text-decoration: none;
 	color: #000000;
 }
 
+/* 表内サイズ修正 */
 #EventTitle {
-	width: 850px;
+	width: 790px;
 }
 
 #EventDetail {
-	width: 850px;
+	width: 790px;
+}
+
+#cke_EventDetail {
+	width: 790px;
+
+}
+
+td img {
+	width: 790px;
+	height: 316px;
 }
