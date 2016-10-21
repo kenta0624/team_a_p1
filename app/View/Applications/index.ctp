@@ -1,9 +1,7 @@
-<style type="text/css">
-</style>
 
 <div class="wrapper">
 
-<?php  //$this->log($applications); ?>
+<?php  //$this->log($applications,'debug'); ?>
 
 <header>
 	<h1> 申し込み一覧</h1>
@@ -21,8 +19,8 @@
 		    <th>チケット名</th>
 			<th>枚数</th>
 			<th>申込者名</th>
-			<th>Tel</th>
-			<th>Email</th>
+			<th>電話番号</th>
+			<th>メールアドレス</th>
 			<th>申込日</th>
 			<th>詳細</th>
 
@@ -106,7 +104,7 @@
 		//var_dump($applications);
 
 		foreach ($applications as $application):
-
+			$this->log($application,'debug');
 		  if($application['Application']['ticket_id'] != $tid && $application != end($applications)){
 			if($application !== reset($applications)){ ?>
 				<tr>
@@ -123,6 +121,17 @@
 				</tr>
 
 			<?php } ?>
+			<?php if($application['Application']['ticket_id'] != $tid ){
+				      if ($application == end($applications) && $application == reset($application)){ ?>
+			  			 <tr><td><?php echo $tname ?> </td>
+		       			<td><?php echo $count.' 枚'; ?></td>
+						<?php $price = $count * $ticket_price; ?>
+						<td> <?php echo number_format($price).' 円'; ?> </td></tr>
+			  			<?php $count = 0;
+						$ticket_price = 0;
+						$price = 0; ?>
+			<?php	 }
+			 	}?>
 
 
 			<!-- <?php // $price =$application['Application']['quantity'] * ($application['Ticket']['price']); ?> -->
