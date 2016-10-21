@@ -3,50 +3,91 @@
         <h1>チケット編集</h1>
         <h2><?php echo __('Ticket Edit'); ?></h2>
     </header>
-        <h3>沖縄フェスタ</h3>
+    <h3>沖縄フェスタ</h3>
     <!-- ユーザー入力情報 タイトル＆表 -->
     <div class="tickets form">
-        <?php echo $this->Form->create('Ticket'); ?>
-    <table class="type03" width="1000">
-        <?php echo $this->Form->input('id');
-        echo 'イベント名：'.$data['Event']['title']; ?>
-        <tr>
-            <th>チケット名</th>
-            <td>
-                <!-- <input type="text" name="example1" size="30" value="沖縄フェスタ">　-->
-                <?php echo $this->Form->input('ticket_name', array('label' => false)); ?>
-                <span class="moji1">※20文字以内</span>
-            </td>
-        </tr>
-        <tr>
-            <th>開催日</th>
-            <td>
-                <!-- <input type="text" name="example1" size="30" value="１１／１">　-->
-                <?php echo $this->Form->input('event_date', array(
-                    'type' => 'date',
-                    'dateFormat' => 'YMD',
-                    'monthNames' => false,
-                    'separator' => '/',
-                    'label' => false
-                )); ?>
-                <span class="moji1">※20文字以内</span>
-            </td>
-        </tr>
-        <tr>
-            <th>単価</th>
-            <td>
-                <!-- <input type="text" name="example1" size="30" value="１０，０００">　円 -->
-                <?php echo $this->Form->input('price', array('label' => false)); ?>
-            </td>
-        </tr>
-    <?php echo "<input type='hidden' name='event_id' value='".$data['Event']['id']."'>";  ?>
-    </table>
-    <!-- ボタン -->
-        <!-- <a class="button1" href="#"><strong>編集</strong></a> -->
-        <?php echo $this->Form->end(__('編集')); ?>
+        <?php echo $this->Form->create('Ticket', array('id' => 'Ticket')); ?>
+        <table class="type03" width="1000">
+            <?php echo $this->Form->input('id'); ?>
+            <tr>
+                <th>イベント名</th>
+                <td><?php echo $data['Event']['title']; ?></td>
+            </tr>
+            <tr>
+                <th>チケット名</th>
+                <td>
+                    <!-- <input type="text" name="example1" size="30" value="沖縄フェスタ">　-->
+                    <?php echo $this->Form->input('ticket_name', array('label' => false)); ?>
+                    <span class="moji1">※20文字以内</span>
+                </td>
+            </tr>
+            <tr>
+                <th>開催日</th>
+                <td>
+                    <!-- <input type="text" name="example1" size="30" value="１１／１">　-->
+                    <?php echo $this->Form->input('event_date', array(
+                        'type' => 'date',
+                        'dateFormat' => 'YMD',
+                        'monthNames' => false,
+                        'separator' => '/',
+                        'label' => false
+                    )); ?>
+                    <span class="moji1">※20文字以内</span>
+                </td>
+            </tr>
+            <tr>
+                <th>単価</th>
+                <td>
+                    <!-- <input type="text" name="example1" size="30" value="１０，０００">　円 -->
+                    <?php echo $this->Form->input('price', array('label' => false)); ?>
+                </td>
+            </tr>
+            <?php echo "<input type='hidden' name='event_id' value='" . $data['Event']['id'] . "'>"; ?>
+        </table>
+        <!-- ボタン -->
+        <div class="button4">
+            <div class="button3">
+                <?php echo $this->Html->link(
+                    '保存',
+                    'javascript:void(0)',
+                    array(
+                        'onclick' => 'FormSubmit(\'Ticket\')',
+                        'class' => 'button'
+                    )
+                ); ?>
+
+            </div>
+        </div>
+
+        <?php echo $this->Form->end(); ?>
+
     </div>
-        <!-- <a class="button2" href="#"><strong>削除</strong></a> -->
-    <?php echo $this->Form->postLink(__('削除'), array('action' => 'delete', $data['Ticket']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $data['Ticket']['id']), 'class' => 'button')); ?>
-        <!-- <a class="button3" href="#"><strong>チケット一覧に戻る</strong></a> -->
-    <?php echo $this->Html->link(__('チケット一覧に戻る'), array('action' => 'index', $data['Event']['id']), array('class' => 'button')); ?>
+    <div class="button4">
+        <div class="button3">
+            <?php echo $this->Form->postLink(
+                __('削除'),
+                array(
+                    'action' => 'delete',
+                    $data['Ticket']['id']
+                ),
+                array(
+                    'confirm' => __('Are you sure you want to delete # %s?', $data['Ticket']['id']),
+                    'class' => 'button'
+                )
+            ); ?>
+        </div>
     </div>
+    <div class="button4">
+        <div class="button3">
+            <?php echo $this->Html->link(
+                __('チケット一覧に戻る'),
+                array(
+                    'action' => 'index',
+                    $data['Event']['id']
+                ),
+                array('class' => 'button')
+            ); ?>
+
+        </div>
+    </div>
+</div>

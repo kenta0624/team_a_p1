@@ -59,6 +59,7 @@ class TicketsController extends AppController {
         }
 		if ($this->request->is('post')) {
 			$this->Ticket->create();
+            $this->request->data['Ticket']['event_id'] = $id;
 			if ($this->Ticket->save($this->request->data)) {
 				$this->Flash->success(__('The ticket has been saved.'));
 				return $this->redirect(array('action' => 'index', $id));
@@ -68,8 +69,11 @@ class TicketsController extends AppController {
 		}
         $this->set('user_name', $this->Auth->user('User.name'));
         $conditions = array("Event.id" => $id);
-		$events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
-		$this->set(compact('events'));
+        $events = $this->Ticket->Event->find('list', array('conditions' => $conditions));
+        $this->set(compact('events'));
+        $eventTitle = $this->Ticket->Event->find('first', array('conditions' => $conditions))['Event']['title'];
+
+        $this->set('eventTitle',$eventTitle);
         $this->set('event_id', $id);
 	}
 
@@ -115,7 +119,6 @@ class TicketsController extends AppController {
         $conditions = array("Ticket.id" => $id);
         $ticket = $this->Ticket->find('first', array('conditions' => $conditions));
 
-        $this->log($ticket['Ticket']['event_id'], LOG_DEBUG);
 		if (!$this->Ticket->exists()) {
 			throw new NotFoundException(__('Invalid ticket'));
 		}
