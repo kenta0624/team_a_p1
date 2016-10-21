@@ -41,8 +41,8 @@ class ApplicationsController extends AppController
     public function index($id)
     {
         $this->Application->recursive = 2;
-        $this->Paginator->settings = $this->paginate;
-        $this->set('applications', $this->Paginator->paginate(array('Ticket.event_id' => $id)));
+        $this->set('applications', $this->Application->find ('all',array('conditions' => array('Ticket.event_id' => $id))));
+
     }
 
     /**
