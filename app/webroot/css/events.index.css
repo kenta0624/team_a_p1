@@ -214,11 +214,13 @@ dl.search2 dd{
 	position:absolute;
 	top:0;
 	right:0;
+
 }
 dl.search2 dd button{
 	display:block;
 	width:60px;
 	height:29px;
+	font-weight: bold;
 	color:#000000;
 	line-height:20px;
 	text-align:center;

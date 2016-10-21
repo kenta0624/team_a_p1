@@ -7,7 +7,7 @@
 
     <!-- 検索 -->
     <div align="right">
-        <?php echo $this->Form->create('Search',array('url'=>'index')); ?>
+        <?php echo $this->Form->create('Search',array('url'=>'index','id' => 'Search')); ?>
         <dl class="search2">
             <dt class="a1"><?php echo $this->Form->input('title', array('label' => false)); ?></dt>
             <dd>
@@ -16,7 +16,7 @@
                 echo $this->Html->link(
                     'Search',
                     'javascript:void(0)',
-                    array('onclick' => 'FormSubmit(\'Event\')')
+                    array('onclick' => 'FormSubmit(\'Search\')')
                 );
                 ?>
                 </button>
