@@ -1,6 +1,4 @@
-<style type="text/css">
 
-</style>
 
 <div class="wrapper">
 <?php //$this->log($application,'debug'); ?>
@@ -46,6 +44,13 @@
 		</tr>
 
 		<tr>
+			<th><?php echo __('金額'); ?></th>
+			<td>
+				<?php echo number_format($application['Application']['quantity'] * $application['Ticket']['price']) .' 円'; ?>
+				&nbsp;			</td>
+		</tr>
+
+		<tr>
 			<th><?php echo __('名前'); ?></th>
 			<td>
 				<?php echo h($application['Application']['customer_name']); ?>
@@ -53,7 +58,7 @@
 			</tr>
 
 		<tr>
-			<th><?php echo __('Tel'); ?></th>
+			<th><?php echo __('電話番号'); ?></th>
 			<td>
 				<?php echo h($application['Application']['tel']); ?>
 			</td>
@@ -61,7 +66,7 @@
 
 
 		<tr>
-			<th><?php echo __('Email'); ?></th>
+			<th><?php echo __('メールアドレス'); ?></th>
 			<td>
 				<?php echo h($application['Application']['email']); ?>
 		&nbsp;	</td>

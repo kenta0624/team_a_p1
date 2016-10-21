@@ -15,9 +15,9 @@
 	<thead>
 	<tr>
 		   <th>申し込みID</th>
-			<th>チケットID</th>
-		    <th>チケット名</th>
-			<th>枚数</th>
+			<th>チケット</th>
+		    <th>枚数</th>
+			<th>金額</th>
 			<th>申込者名</th>
 			<th>電話番号</th>
 			<th>メールアドレス</th>
@@ -45,9 +45,11 @@
 			<?php //echo $this->Html->link($application['Ticket']['id'], array('controller' => 'tickets', 'action' => 'view', $application['Ticket']['id'])); ?>
 		</td> -->
 		<td><?php echo h($application['Application']['id']); ?>&nbsp;</td>
-		<td><?php echo h($application['Application']['ticket_id']); ?>&nbsp;</td>
-		<td><?php echo h($application['Ticket']['ticket_name']); ?>&nbsp;</td>
+		<td><?php echo h($application['Application']['ticket_id'].': '.$application['Ticket']['ticket_name']); ?></td>
+		<!-- <td><?php //echo h($application['Ticket']['ticket_name']); ?>&nbsp;</td> -->
+
 		<td><?php echo h($application['Application']['quantity']); ?>&nbsp;</td>
+		<td><?php echo number_format($application['Application']['quantity'] * $application['Ticket']['price']).'円'; ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['customer_name']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['tel']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['email']); ?></td>
