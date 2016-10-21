@@ -54,9 +54,7 @@ class TicketsController extends AppController {
  * @return void
  */
 	public function add($id = null) {
-        if (!$this->Ticket->exists($id)) {
-            throw new NotFoundException(__('Invalid application'));
-        }
+
 		if ($this->request->is('post')) {
 			$this->Ticket->create();
             $this->request->data['Ticket']['event_id'] = $id;
