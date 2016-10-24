@@ -3,7 +3,7 @@
         <h1>チケット一覧</h1>
         <h2><?php echo __('Ticket List'); ?></h2>
     </header>
-    <!-- ユーザー入力情報 タイトル＆表 -->
+    <!-- ユーザー入力情報 タイトル＆表  -->
     <div class="tickets index">
         <table class="type03" width="1000" cellpadding="0" cellspacing="0">
             <thead>
