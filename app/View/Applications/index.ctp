@@ -59,7 +59,11 @@
 		<td><?php echo date('Y-m-d',strtotime($date)); ?></td>
 		<!-- <td><?php //echo h($application['Application']['modified']); ?>&nbsp;</td>  -->
 		<td class="actions">
-			<?php echo $this->Html->link(__('閲覧'), array('action' => 'view', $application['Application']['id'])); ?>
+			<div class="button3">
+			<div class="button4">
+				<?php echo $this->Html->link(__('閲覧'), array('action' => 'view', $application['Application']['id'])); ?>
+			</div>
+			</div>
 			<!-- <?php //echo $this->Html->link(__('View'), array('action' => 'view', $application['Application']['id'])); ?>
 			<?php //echo $this->Html->link(__('Edit'), array('action' => 'edit', $application['Application']['id'])); ?>
 			<?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $application['Application']['id']),
