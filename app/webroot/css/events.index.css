@@ -9,13 +9,11 @@ body {
 
 }
 
-#container {
-	width: 1000px;
-	margin: 0 auto;
-}
 
-/* header部分 */
-header {
+
+/* title部分 */
+.title {
+	margin: 50px 0 0 0;
 	width: 1000px;
 	height: 80px;
 	border-bottom: 3px solid #000000;
@@ -32,6 +30,7 @@ h2 {
 	font-size: 35px;
 	color: #d5d5d5;
 }
+
 
 
 
@@ -240,4 +239,10 @@ dl.search2 dd button{
 	width: 175px;
 	height: 19px;
 	border-style: none;
+}
+
+/* フッターを幅いっぱいにする為のボックス*/
+#footerbg {
+	margin: 50px 0 0 0;
+
 }

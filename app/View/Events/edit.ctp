@@ -1,9 +1,11 @@
+
+
 <div class="wrapper">
     <!-- ヘッダー -->
-    <header>
+    <div class="title">
         <h1>イベント編集</h1>
         <h2>Event Edit</h2>
-    </header>
+    </div>
 
     <!-- 表 -->
     <?php echo $this->Form->create('Event', array('type' => 'file', 'id' => 'Event')); ?>
@@ -99,7 +101,7 @@
         </div>
     </div>
 
-    <?php echo $this->Form->end(); ?>
+
 
     <div class="button4">
         <div class="button3">
@@ -114,5 +116,11 @@
         </div>
     </div>
 
+    <?php echo $this->Form->end(); ?>
+
+
+
 
 </div>
+
+
