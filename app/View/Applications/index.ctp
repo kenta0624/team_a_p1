@@ -1,7 +1,7 @@
-
 <div class="wrapper">
 
 <?php  //$this->log($applications,'debug'); ?>
+<?php //echo phpversion(); ?>
 
 <header>
 	<h1> 申し込み 一覧</h1>
@@ -37,7 +37,6 @@
 	</thead>
 
 	<tbody>
-	<?php //echo phpversion(); ?>
     <?php foreach($applications as $key => $value){
     	$sort[$key] = $value['Application']['id'];
 	}
@@ -46,13 +45,9 @@
 	<?php foreach ($applications as $application): ?>
 
 	<tr>
-		<!-- <td><?php //echo h($application['Application']['id']); ?>&nbsp;</td>  -->
-		<!--<td>
-			<?php //echo $this->Html->link($application['Ticket']['id'], array('controller' => 'tickets', 'action' => 'view', $application['Ticket']['id'])); ?>
-		</td> -->
+
 		<td><?php echo h($application['Application']['id']); ?>&nbsp;</td>
 		<td><?php echo h($application['Application']['ticket_id'].': '.$application['Ticket']['ticket_name']); ?></td>
-		<!-- <td><?php //echo h($application['Ticket']['ticket_name']); ?>&nbsp;</td> -->
 
 		<td><?php echo h($application['Application']['quantity']); ?>&nbsp;</td>
 		<td><?php echo number_format($application['Application']['quantity'] * $application['Ticket']['price']).'円'; ?>&nbsp;</td>
@@ -86,12 +81,6 @@
 	//));
 	?>
 
-	<?php
-		//echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		//echo $this->Paginator->numbers(array('separator' => ''));
-		//echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-
 
 	<table class="type03" width="1000">
 		<thead>
@@ -106,6 +95,13 @@
 		<tbody>
 		<?php
 
+		$this->log($applications,'debug');
+		foreach($applications as $key => $value){
+			$sort[$key] = $value['Ticket']['id'];
+		}
+		array_multisort($sort,SORT_ASC,$applications);
+		//$this->log($application,'debug');
+
 		$priceall = 0;
 		$price = 0;
 		$ticket_price =0;
@@ -113,92 +109,54 @@
 		$count = 0;
 		$tid = 0;
 		$i =0;
-
 		$tname ="";
-		//var_dump($applications);
-		//asort($applications,array($applications['Application']['ticket_id']));
-		//$this->log($applications,'debug');
-		foreach($applications as $key => $value){
-			$sort[$key] = $value['Ticket']['id'];
-		}
-		array_multisort($sort,SORT_ASC,$applications);
 
 		foreach ($applications as $application):
 		$i= $i +1;
-		//$this->log($application,'debug');
-		  if($application['Application']['ticket_id'] != $tid && $application != end($applications)){
-			//if($application != reset($applications)){
-			  if($i != 1) { ?>
+
+		if($i != 1) {
+			   //if($application['Application']['ticket_id'] != $tid && $application == end($applications)) {
+			if($application['Application']['ticket_id'] != $tid) { ?>
+				  <tr>
+				   <td><?php echo $tid.': '.$tname ?> </td>
+				   <td><?php echo $count . ' 枚'; ?></td>
+				   <?php $price = $count * $ticket_price; ?>
+				   <td> <?php echo number_format($price) . ' 円'; ?> </td>
+				   </tr>
+				   <?php $count = 0;
+				   $ticket_price = 0;
+				   $price = 0;
+				}
+
+		} ?>
+
+		<?php $count = $count + $application['Application']['quantity'];?>
+		<?php $tname = $application['Ticket']['ticket_name']; ?>
+		<?php $countall =  $countall  + $application['Application']['quantity'];  ?>
+
+		<?php $ticket_price =$application['Ticket']['price'];?>
+		<?php $priceall = $priceall +  ($application['Application']['quantity'] * ($application['Ticket']['price'])); ?>
+		<?php $tid = $application['Application']['ticket_id']; ?>
+
+		<?php if ($application == end($applications)) { ?>
 				<tr>
-					<td><?php echo $tid.': '.$tname ?> </td>
+    				<td><?php echo $tid.': '.$tname ?> </td>
 					<td><?php echo $count.' 枚'; ?></td>
-					<?php //$price = $application['Application']['quantity'] * ($application['Ticket']['price']);
-					?>
 					<?php $price = $count * $ticket_price; ?>
 					<td> <?php echo number_format($price).' 円'; ?> </td>
-					<?php $count = 0;
-					$ticket_price = 0;
-					$price = 0;
-			}	?>
-				</tr>
-		<?php } ?>
-
-				<?php  if($i != 1) {
-			               if($application['Application']['ticket_id'] != $tid && $application == end($applications)) {
-							   ?>
-							   <tr>
-								   <td><?php echo $tid.': '.$tname ?> </td>
-								   <td><?php echo $count . ' 枚'; ?></td>
-								   <?php $price = $count * $ticket_price; ?>
-								   <td> <?php echo number_format($price) . ' 円'; ?> </td>
-							   </tr>
-							   <?php $count = 0;
-							   $ticket_price = 0;
-							   $price = 0;
-						   }
-
-
-						} ?>
-
-
-			<!-- <?php // $price =$application['Application']['quantity'] * ($application['Ticket']['price']); ?> -->
-			<!-- <td> <?php  //echo $price;  ?> </td>  -->
-			<!-- <td><?php // echo h($application['Ticket']['price']); ?></td>  -->
-			<!-- <td><?php //echo array_sum($ticket['Ticket']['quantity']); ?></td> -->
-			<?php $count = $count + $application['Application']['quantity'];?>
-			<?php $tname = $application['Ticket']['ticket_name']; ?>
-			<?php $countall =  $countall  + $application['Application']['quantity'];  ?>
-
-			<?php $ticket_price =$application['Ticket']['price'];?>
-			<?php $priceall = $priceall +  ($application['Application']['quantity'] * ($application['Ticket']['price'])); ?>
-			<?php $tid = $application['Application']['ticket_id']; ?>
-
-
-
-			<?php if ($application == end($applications)) { ?>
-						<tr>
-						<td><?php echo $tid.': '.$tname ?> </td>
-						<td><?php echo $count.' 枚'; ?></td>
-						<?php $price = $count * $ticket_price; ?>
-						<td> <?php echo number_format($price).' 円'; ?> </td>
-						</tr>
+					</tr>
 			<?php
-					} ?>
-
+				} ?>
 
 		<?php 	endforeach; ?>
-
 
 		<tr class="total">
 			<td>申し込み枚数  合計</td>
 			<td><?php echo $countall.' 枚'; ?></td>
 			<td><?php echo number_format($priceall).' 円'; ?></td>
 		</tr>
-
 		</tbody>
-
 	</table><br>
-
 
 	<!-- <h3><?php //echo __('Actions'); ?></h3>  -->
 	<!--<ul> -->
@@ -208,12 +166,15 @@
 	<div class="button"><?php echo $this->Html->link(__('イベント一覧に戻る'),
 		  array('controller' => 'Events', 'action' => 'index')); ?> </div>
 </div>
-
 <!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
-		<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li> -->
+	<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li> -->
 	<!-- </ul> -->
 
 	<!-- <a class="button" href="#"><?php //echo $this->Html->link(__('イベント一覧に戻る'),
 			//array('controller' => 'Events', 'action' => 'index')); ?></a>  -->
 </div>
-
+<?php
+//echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+//echo $this->Paginator->numbers(array('separator' => ''));
+//echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+?>
