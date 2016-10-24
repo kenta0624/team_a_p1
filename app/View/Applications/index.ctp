@@ -4,7 +4,7 @@
 <?php  //$this->log($applications,'debug'); ?>
 
 <header>
-	<h1> 申込 一覧</h1>
+	<h1> 申し込み 一覧</h1>
 	<h2>Application List</h2>
 	<!-- <h2><?php //echo __('Application List'); ?></h2> -->
 </header>
@@ -122,12 +122,13 @@
 			$sort[$key] = $value['Ticket']['id'];
 		}
 		array_multisort($sort,SORT_ASC,$applications);
-		
+
 		foreach ($applications as $application):
 		$i= $i +1;
 		//$this->log($application,'debug');
 		  if($application['Application']['ticket_id'] != $tid && $application != end($applications)){
-			if($application != reset($applications)){ ?>
+			//if($application != reset($applications)){
+			  if($i != 1) { ?>
 				<tr>
 					<td><?php echo $tid.': '.$tname ?> </td>
 					<td><?php echo $count.' 枚'; ?></td>
