@@ -4,7 +4,6 @@
         <h2><?php echo __('Ticket Edit'); ?></h2>
     </header>
 
-    <!-- イベント名 -->
     <h3><?php echo $data['Event']['title']; ?></h3>
 
     <!-- ユーザー入力情報 タイトル＆表 -->
@@ -16,14 +15,12 @@
             <tr>
                 <th width="200">チケット名</th>
                 <td>
-                    <!-- <input type="text" name="example1" size="30" value="沖縄フェスタ">　-->
                     <?php echo $this->Form->input('ticket_name', array('label' => false)); ?>
                 </td>
             </tr>
             <tr>
                 <th>開催日</th>
                 <td>
-                    <!-- <input type="text" name="example1" size="30" value="１１／１">　-->
                     <?php echo $this->Form->input('event_date', array(
                         'type' => 'date',
                         'dateFormat' => 'YMD',
@@ -36,10 +33,16 @@
             <tr>
                 <th>単価</th>
                 <td>
-                    <!-- <input type="text" name="example1" size="30" value="１０，０００">　円 -->
                     <?php echo $this->Form->input('price', array('label' => false)); ?><span class="moji1">円</span>
                 </td>
             </tr>
+            <tr>
+                <th>販売枚数</th>
+                <td>
+                    <?php echo $this->Form->input('count', array('label' => false)); ?><span class="moji1">枚</span>
+                </td>
+            </tr>
+
             <?php echo "<input type='hidden' name='event_id' value='" . $data['Event']['id'] . "'>"; ?>
         </table>
 

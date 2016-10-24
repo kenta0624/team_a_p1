@@ -35,6 +35,12 @@
                     <?php echo $this->Form->input('price', array('label' => false)); ?><span class="moji1">円</span>
                 </td>
             </tr>
+            <tr>
+                <th>販売枚数</th>
+                <td>
+                    <?php echo $this->Form->input('count', array('label' => false)); ?><span class="moji1">枚</span>
+                </td>
+            </tr>
         </table>
     </div>
     <!-- ボタン -->
