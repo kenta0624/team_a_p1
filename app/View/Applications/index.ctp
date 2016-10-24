@@ -4,7 +4,7 @@
 <?php  //$this->log($applications,'debug'); ?>
 
 <header>
-	<h1> 申し込み一覧</h1>
+	<h1> 申し込み 一覧</h1>
 	<h2>Application List</h2>
 	<!-- <h2><?php //echo __('Application List'); ?></h2> -->
 </header>
@@ -14,7 +14,7 @@
 <table class="type03" width="1000">
 	<thead>
 	<tr>
-		   <th>申し込みID</th>
+		   <th>申込ID</th>
 			<th>チケット</th>
 		    <th>枚数</th>
 			<th>金額</th>
@@ -37,8 +37,14 @@
 	</thead>
 
 	<tbody>
+	<?php //echo phpversion(); ?>
+    <?php foreach($applications as $key => $value){
+    	$sort[$key] = $value['Application']['id'];
+	}
+	array_multisort($sort,SORT_ASC,$applications);
+	//asort($applications); ?>
 	<?php foreach ($applications as $application): ?>
-		<?php  //var_dump($application); ?>
+
 	<tr>
 		<!-- <td><?php //echo h($application['Application']['id']); ?>&nbsp;</td>  -->
 		<!--<td>
@@ -59,7 +65,11 @@
 		<td><?php echo date('Y-m-d',strtotime($date)); ?></td>
 		<!-- <td><?php //echo h($application['Application']['modified']); ?>&nbsp;</td>  -->
 		<td class="actions">
-			<?php echo $this->Html->link(__('閲覧'), array('action' => 'view', $application['Application']['id'])); ?>
+			<div class="button3">
+			<div class="button4">
+				<?php echo $this->Html->link(__('閲覧'), array('action' => 'view', $application['Application']['id'])); ?>
+			</div>
+			</div>
 			<!-- <?php //echo $this->Html->link(__('View'), array('action' => 'view', $application['Application']['id'])); ?>
 			<?php //echo $this->Html->link(__('Edit'), array('action' => 'edit', $application['Application']['id'])); ?>
 			<?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $application['Application']['id']),
@@ -95,6 +105,7 @@
 
 		<tbody>
 		<?php
+
 		$priceall = 0;
 		$price = 0;
 		$ticket_price =0;
@@ -105,12 +116,19 @@
 
 		$tname ="";
 		//var_dump($applications);
+		//asort($applications,array($applications['Application']['ticket_id']));
+		//$this->log($applications,'debug');
+		foreach($applications as $key => $value){
+			$sort[$key] = $value['Ticket']['id'];
+		}
+		array_multisort($sort,SORT_ASC,$applications);
 
 		foreach ($applications as $application):
 		$i= $i +1;
 		//$this->log($application,'debug');
 		  if($application['Application']['ticket_id'] != $tid && $application != end($applications)){
-			if($application != reset($applications)){ ?>
+			//if($application != reset($applications)){
+			  if($i != 1) { ?>
 				<tr>
 					<td><?php echo $tid.': '.$tname ?> </td>
 					<td><?php echo $count.' 枚'; ?></td>

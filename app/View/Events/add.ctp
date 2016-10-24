@@ -1,9 +1,9 @@
 <div class="wrapper">
     <!-- ヘッダー -->
-    <header>
+    <div class="title">
         <h1>新規イベント追加</h1>
         <h2>Add New Event</h2>
-
+    </div>
         <!-- 表 -->
         <?php echo $this->Form->create('Event', array('id' => 'Event', 'label' => false, 'type' => 'file')); ?>
 
