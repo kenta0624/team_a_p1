@@ -216,11 +216,11 @@ a {
 
 dl.search2{
     position:relative;
-    width: 250px;
+    width: 300px;
 
 }
 dl.search2 dt{
-    margin-right:64px;
+    margin-right:90px;
     background-color:#fff;
     border:2px solid #000000;
     height: 25px;
@@ -234,7 +234,7 @@ dl.search2 dd{
 }
 dl.search2 dd button{
     display:block;
-    width:60px;
+    width:85px;
     height:29px;
     font-weight: bold;
     color:#000000;
@@ -252,7 +252,7 @@ dl.search2 dd button{
     position:absolute;
     top:4px;
     left:5px;
-    width: 175px;
+    width: 200px;
     height: 19px;
     border-style: none;
 }

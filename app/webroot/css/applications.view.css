@@ -1,3 +1,5 @@
+
+/* フォントと全体幅と中央寄せ*/
 body {
     font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
 }
@@ -13,6 +15,7 @@ body {
 
 }
 
+/* ヘッダ部　*/
 header {
     width: 1000px;
     height: 80px;
@@ -31,6 +34,7 @@ h2 {
     color: #d5d5d5;
 }
 
+/*  小見出し部　*/
 h3 {
     /*  float: left;  */
     /*  font-size: 35px; */
@@ -39,6 +43,8 @@ h3 {
     border-left: 6px solid #d5d5d5;
     margin: 40px 0 0 0;
 }
+
+/*  戻るボタン　*/
 
 .button2 {
     margin: 20px 0 0 0;
@@ -103,6 +109,8 @@ h3 {
 
 }
 
+
+/* テーブルデザイン　*/
 table.type03 {
     margin: 10px 0 0 0;
     border-collapse: collapse;

@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-<?php  $this->log($applications,'debug'); ?>
+<?php  //$this->log($applications,'debug'); ?>
 <?php //echo phpversion(); ?>
 
 <header>
@@ -25,7 +25,7 @@
 			<button>
 				<?php
 				echo $this->Html->link(
-					'Search',
+					'申込者検索',
 					'javascript:void(0)',
 					array('onclick' => 'FormSubmit(\'Serach\')')
 				);
@@ -68,11 +68,15 @@
 	</thead>
 
 	<tbody>
-    <?php foreach($applications as $key => $value){
-    	$sort[$key] = $value['Application']['id'];
-	}
-	array_multisort($sort,SORT_ASC,$applications);
-	//asort($applications); ?>
+    <?php
+		if(isset($applications)){
+    	} else {
+			foreach ($applications as $key => $value) {
+				$sort[$key] = $value['Application']['id'];
+			}
+			array_multisort($sort, SORT_ASC, $applications);
+			//asort($applications);
+		} ?>
 	<?php foreach ($applications as $application): ?>
 
 	<tr>
@@ -127,10 +131,13 @@
 		<?php
 
 		//$this->log($applications,'debug');
-		foreach($applications as $key => $value){
-			$sort[$key] = $value['Ticket']['id'];
+		if(isset($applications)){
+		} else {
+			foreach ($applications as $key => $value) {
+				$sort[$key] = $value['Ticket']['id'];
+			}
+			array_multisort($sort, SORT_ASC, $applications);
 		}
-		array_multisort($sort,SORT_ASC,$applications);
 		//$this->log($application,'debug');
 
 		$priceall = 0;
