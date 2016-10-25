@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-<?php  //$this->log($applications,'debug'); ?>
+<?php  $this->log($applications,'debug'); ?>
 <?php //echo phpversion(); ?>
 
 <header>
@@ -9,7 +9,38 @@
 	<!-- <h2><?php //echo __('Application List'); ?></h2> -->
 </header>
 
-<h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3><br>
+<!-- 検索 -->
+<!--  <div align="right">
+<form method="get" action="index.ctp" class="search2">
+	<input type="text" id="usersearch" name="usersearch" />
+	<input type="submit" name="submit" value="名前検索" /><br />
+</form>
+</div> -->
+
+<div align="right">
+	<?php echo $this->Form->create('Search',array('url'=>'index','id' => 'Search')); ?>
+	<dl class="search2">
+		<dt class="a1"><?php echo $this->Form->input('customer_name', array('label' => false)); ?></dt>
+		<dd>
+			<button>
+				<?php
+				echo $this->Html->link(
+					'Search',
+					'javascript:void(0)',
+					array('onclick' => 'FormSubmit(\'Serach\')')
+				);
+				?>
+			</button>
+		</dd>
+	</dl>
+	<?php echo $this->Form->end();  ?>
+</div>
+
+
+<div>
+	<h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3><br>
+</div>
+
 
 <table class="type03" width="1000">
 	<thead>
@@ -84,7 +115,7 @@
 
 	<table class="type03" width="1000">
 		<thead>
-		<tr id="header2">
+		<tr>
 			<th>チケット種類</th>
 			<th>枚数</th>
 			<th>金額</th>
@@ -95,7 +126,7 @@
 		<tbody>
 		<?php
 
-		$this->log($applications,'debug');
+		//$this->log($applications,'debug');
 		foreach($applications as $key => $value){
 			$sort[$key] = $value['Ticket']['id'];
 		}

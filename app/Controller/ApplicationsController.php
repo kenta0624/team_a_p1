@@ -35,15 +35,31 @@ class ApplicationsController extends AppController
     public $paginate = array(
         'Application' => array(
             'order' => array('ticket_id' => 'asc'),
+            //'order' => array('id' => 'asc'),
         ));
 
 
     public function index($id)
     {
-        $this->Application->recursive = 2;
-        $this->set(
-            'applications',
-            $this->Application->find(
+       $this->Application->recursive = 2;
+      If($this->request->is('post')){                            // リクエストがPOSTの場合
+          //$this->Application->recursive = 2;
+          $name=$this->request->data['Search']['customer_name'];       // Formの値を取得
+          //$data=$this->Paginator->paginate(array('customer_name like'=>'%'.$name.'%','Ticket.event_id'=>$id));
+          $data=$this->Application->find('all',
+              array(
+                  'conditions'=>array(
+                      'customer_name like'=>'%'.$name.'%')));
+                       // 'Ticket.event_id'=>$id),
+                  //'order'=> 'Application.ticket_id'));
+          $this->set('applications',$data);
+
+      }  else {
+
+          //$this->Application->recursive = 2;
+          $this->set(
+              'applications',
+                $this->Application->find(
                 'all',
                 array(
                     'conditions' => array(
@@ -53,7 +69,7 @@ class ApplicationsController extends AppController
                 )
             )
         );
-    }
+    }}
 
     /**
      * view method
