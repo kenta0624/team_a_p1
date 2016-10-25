@@ -101,8 +101,6 @@
         </div>
     </div>
 
-
-
     <div class="button4">
         <div class="button3">
             <?php
@@ -118,8 +116,8 @@
 
     <?php echo $this->Form->end(); ?>
 
-
-
+    <!-- ページトップ -->
+    <a href="#" id="page-top">Page Top</a>
 
 </div>
 

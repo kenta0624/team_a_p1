@@ -8,23 +8,6 @@ body {
 	margin: 0 auto;
 }
 
-/* header部分 */
-header {
-	width: 1000px;
-	height: 100px;
-
-}
-
-h1 {
-	float: left;
-	font-size: 35px;
-}
-
-h2 {
-	float: right;
-	font-size: 35px;
-	color: #d5d5d5;
-}
 
 
 .form-wrapper {
@@ -98,6 +81,8 @@ form {
 	padding: 30px;
 
 }
+
+
 
 /* ヘッダーフッター非表示 */
 #header2 {

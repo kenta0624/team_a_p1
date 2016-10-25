@@ -92,4 +92,7 @@
 
         <?php echo $this->Form->end(); ?>
 
+    <!-- ページトップ -->
+    <a href="#" id="page-top">Page Top</a>
+
 </div>
