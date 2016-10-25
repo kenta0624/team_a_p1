@@ -99,3 +99,34 @@ form {
 
 }
 
+/* ヘッダーフッター非表示 */
+#header2 {
+	display: none;
+}
+
+#headerbg2 {
+	display: none;
+}
+
+#header {
+	display: none;
+}
+
+#headerbg {
+	display: none;
+}
+
+#footerbg {
+	display: none;
+}
+
+#footer {
+	display: none;
+}
+
+/* ユーザー名とパスワードが～ */
+#flashMessage {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 15px;
+}

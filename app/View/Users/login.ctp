@@ -1,9 +1,6 @@
 
 <div class="wrapper">
-    <!-- ヘッダー -->
-    <header>
 
-    </header>
 
     <div class="form-wrapper">
         <h3>Login</h3>

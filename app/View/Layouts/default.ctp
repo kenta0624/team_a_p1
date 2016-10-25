@@ -35,6 +35,9 @@
 </head>
 <body>
 <div id="container">
+    <!--ヘッダーを幅いっぱいにする為のボックス -->
+    <div id="headerbg">
+    <!--ヘッダー -->
     <div id="header">
         <?php
             if(!is_null(AuthComponent::user())){
@@ -44,14 +47,24 @@
             }
         ?>
     </div>
+    </div>
+    <!--ヘッダーを幅いっぱいにする為のボックス2 -->
+    <div id="headerbg2">
+        <!--ヘッダー2 -->
+        <div id="header2">
+            -TeamA-
+        </div>
+    </div>
     <div id="content">
 
         <?php echo $this->Flash->render(); ?>
 
         <?php echo $this->fetch('content'); ?>
     </div>
+    <div id="footerbg">
     <div id="footer">
-
+        COPYRIGHT © TeamA ALL RIGHTS RESERVED.
+    </div>
     </div>
 </div>
 
