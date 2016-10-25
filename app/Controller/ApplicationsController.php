@@ -39,7 +39,7 @@ class ApplicationsController extends AppController
         ));
 
 
-    public function index($id)
+    public function index($id = null)
     {
        $this->Application->recursive = 2;
       If($this->request->is('post')){                            // リクエストがPOSTの場合
