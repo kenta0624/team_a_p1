@@ -12,8 +12,9 @@
                 <th><?php echo $this->Paginator->sort('ticket_name', 'チケット名'); ?></th>
                 <th><?php echo $this->Paginator->sort('event_date', '開催日'); ?></th>
                 <th><?php echo $this->Paginator->sort('price', '単価'); ?></th>
-                <th><?php echo $this->Paginator->sort('count', '販売枚数'); ?></th>
-                <th><?php echo $this->Paginator->sort('stock', '在庫'); ?></th>
+                <th><?php echo $this->Paginator->sort('count', 'チケット総数'); ?></th>
+                <th><?php echo $this->Paginator->sort('sold', '販売済枚数'); ?></th>
+                <th><?php echo $this->Paginator->sort('stock', '在庫数'); ?></th>
                 <th><?php echo $this->Paginator->sort('created', '登録日'); ?></th>
                 <th><?php echo $this->Paginator->sort('modified', '更新日'); ?></th>
                 <th class="actions"><?php echo __('編集'); ?></th>
@@ -28,6 +29,7 @@
                     <td><?php echo h(substr($ticket['Ticket']['event_date'],0,10)); ?>&nbsp;</td>
                     <td><?php echo h($ticket['Ticket']['price']); ?>&nbsp;</td>
                     <td><?php echo h(substr($ticket['Ticket']['count'],0,10)); ?>&nbsp;</td>
+                    <td><?php echo h(substr($ticket['Ticket']['sold'],0,10)); ?>&nbsp;</td>
                     <td><?php echo h(substr($ticket['Ticket']['stock'],0,10)); ?>&nbsp;</td>
                     <td><?php echo h(substr($ticket['Ticket']['created'],0,10)); ?>&nbsp;</td>
                     <td><?php echo h(substr($ticket['Ticket']['modified'],0,10)); ?>&nbsp;</td>
