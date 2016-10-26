@@ -44,6 +44,15 @@ h3 {
     margin: 40px 0 0 0;
 }
 
+.msg{
+    margin: 0 120px 0 0;
+    padding: 0 0 0 0;
+    float: right;
+    font-size: 18px;
+    color: black;
+    position: relative;
+}
+
 .total{
     border-top-style: double;
     border-top-color: #aaaaaa;
@@ -255,4 +264,9 @@ dl.search2 dd button{
     width: 200px;
     height: 19px;
     border-style: none;
+}
+/* フッターを幅いっぱいにする為のボックス*/
+#footerbg {
+    margin: 50px 0 0 0;
+
 }

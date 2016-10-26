@@ -9,13 +9,6 @@
 	<!-- <h2><?php //echo __('Application List'); ?></h2> -->
 </header>
 
-<!-- 検索 -->
-<!--  <div align="right">
-<form method="get" action="index.ctp" class="search2">
-	<input type="text" id="usersearch" name="usersearch" />
-	<input type="submit" name="submit" value="名前検索" /><br />
-</form>
-</div> -->
 
 <div align="right">
 	<?php echo $this->Form->create('Search',array('url'=>'index','id' => 'Search')); ?>
@@ -36,10 +29,15 @@
 	<?php echo $this->Form->end();  ?>
 </div>
 
-
 <div>
-	<h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3><br>
-</div>
+<?php
+       if (empty($applications[0]['Ticket']['Event']['title'])) { ?>     　　　　　　
+			<div class="msg" align="right"><?php echo '検索エラー：該当なし'; ?></div>
+		<?php } else { ?>
+	 		<h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3>
+		<?php } ?>
+
+</div><br>
 
 
 <table class="type03" width="1000">
@@ -70,7 +68,7 @@
 	<tbody>
     <?php
 		if(isset($applications)){
-    	} else {
+		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Application']['id'];
 			}
@@ -207,7 +205,6 @@
 <!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
 	<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li> -->
 	<!-- </ul> -->
-
 	<!-- <a class="button" href="#"><?php //echo $this->Html->link(__('イベント一覧に戻る'),
 			//array('controller' => 'Events', 'action' => 'index')); ?></a>  -->
 </div>
