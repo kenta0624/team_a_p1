@@ -3,10 +3,6 @@ App::uses('AppModel', 'Model');
 
 class Ticket extends AppModel {
 
-    public $virtualFields = array(
-        'stock' => 999
-    );
-
 	public $displayField = 'ticket_name';
 
 	public $validate = array(
