@@ -8,7 +8,9 @@
     <div class="mousikomi">
         <p><?php echo $application['Ticket']['Event']['title']; ?>　の申し込みを完了致しました。</p>
         <p>申し込み番号は　<?php echo $application['Application']['id']; ?>　です。</p>
+        <div class="mail">※申し込み時のメールアドレスに申し込み情報の控えが送信されました。</div>
     </div>
+
     <!-- 見出し -->
     <h3>チケット詳細</h3>
     <!-- 表 -->

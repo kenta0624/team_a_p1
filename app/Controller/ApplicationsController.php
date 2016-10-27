@@ -109,7 +109,8 @@ class ApplicationsController extends AppController
             $newApplication = $this->Application->save($this->request->data);
             if (is_array($newApplication)) {
 
-                return $this->redirect(array('action' => 'added', $newApplication['Application']['id']));
+                //データ追加に成功した後、メール送信（send）にリダイレクトする。
+                return $this->redirect(array('action' => 'send', $newApplication['Application']['id']));
             } else {
                 $this->Flash->error(__('The application could not be saved. Please, try again.'));
             }
@@ -147,6 +148,84 @@ class ApplicationsController extends AppController
     {
         $this->Application->recursive = 3;
         $this->set('application', $this->Application->find('first', array('conditions' => array('Application.id' => $id))));
+    }
+
+    /* send method
+     * メール送信機能。add（申込追加）→send（メール送信）→added（申込完了）の順でリダイレクトする。
+     */
+
+    public function send($id)
+    {
+        //メール送信に必要なデータの取得。
+        $this->Application->recursive = 3;
+        $infomation = $this->Application->find('first', array('conditions' => array('Application.id' => $id)));
+
+        //加工が必要な変数をまとめて、計算。イベント開催日、チケット合計金額、イベント詳細。
+        $date = date_format(date_create($infomation['Ticket']['event_date']), 'Y/m/d H:i');
+        $price = $infomation['Application']['quantity'] * $infomation['Ticket']['price'];//合計金額＝枚数×単価。
+        $detail = strip_tags($infomation['Ticket']['Event']['detail']);
+
+        //以下、メール本文。
+        $mailbody = array(
+            'name' => $infomation['Application']['customer_name'],//本文の宛名「◯◯様」の「◯◯」部分。
+            'content' => "いつもご利用いただきありがとうございます。
+イベントチームA事務局です。
+
+以下の通り、イベントの申込を受け付けました。
+イベント当日までこちらのメールを大切に保存してください。
+
+引き続きのご利用、よろしくお願いいたします。
+
+イベントチームA事務局
+        
+        ----
+        
+        【申し込み内容】
+        申し込み番号：　{$infomation['Application']['id']}
+        
+        [チケット詳細]
+        イベント名：　{$infomation['Ticket']['Event']['title']}
+        チケット種類：　{$infomation['Ticket']['ticket_name']}
+        開催日時：　{$date}
+        枚数：　{$infomation['Application']['quantity']} 枚
+        合計金額：　{$price} 円
+        詳細：
+        ----
+    {$detail}
+        ----
+        
+        [申し込みユーザー情報]
+        氏名：　{$infomation['Application']['customer_name']}
+        電話番号：　{$infomation['Application']['tel']}
+        メールアドレス：　{$infomation['Application']['email']}
+        
+        
+----
+----
+株式会社イベントチームエイ
+http://localhost/team_a_p1/users/login
+※本メールは配信専用です。ご返信いただいても回答しかねますので予めご了承ください。
+        ",
+        );
+        //メール本文終了。
+
+        //メール送信の設定。
+        $email = new CakeEmail('gmail');//使用するメール送信の設定。
+        $sent = $email
+            ->template('text_mail')//使用するメールテンプレートのファイル名。
+            ->viewVars($mailbody)//メールの本文。
+            ->from(array('event.team.a@gmail.com' => 'イベントチームA事務局'))//送信元メールアドレス→送信元の表示名。
+            ->to($infomation['Application']['email'])//送信先のメールアドレス、申込者のメールアドレスを自動取得する。
+            ->subject('【イベントチームA事務局】申込を受け付けました')//送信メールの件名。
+            ->send();
+
+        if ($sent) {
+            echo 'メール送信成功！';
+            //メール送信に成功すると、addedにリダイレクトする。
+            return $this->redirect(array('action' => 'added', $id));
+        } else {
+            echo 'メール送信失敗';
+        }
     }
 
     public function noEventId()
