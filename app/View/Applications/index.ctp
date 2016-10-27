@@ -195,18 +195,23 @@
 	<!--<ul> -->
 		<!-- <li><?php //echo $this->Html->link(__('New Application'), array('action' => 'add')); ?></li> -->
 
-<div class="button2">
-	<div class="button"><?php echo $this->Html->link(__('イベント一覧に戻る'),
-		  array('controller' => 'Events', 'action' => 'index')); ?> </div>
-</div>
-<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
+	<div class="button2">
+		<div class="button"><?php echo $this->Html->link(__('イベント一覧に戻る'),
+			  array('controller' => 'Events', 'action' => 'index')); ?> </div>
+	</div>
+	<!-- <li><?php //echo $this->Html->link(__('List Tickets'), array('controller' => 'tickets', 'action' => 'index')); ?> </li> -->
 	<!-- <li><?php //echo $this->Html->link(__('New Ticket'), array('controller' => 'tickets', 'action' => 'add')); ?> </li> -->
 	<!-- </ul> -->
 	<!-- <a class="button" href="#"><?php //echo $this->Html->link(__('イベント一覧に戻る'),
 			//array('controller' => 'Events', 'action' => 'index')); ?></a>  -->
+
+	<?php
+		//echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		//echo $this->Paginator->numbers(array('separator' => ''));
+		//echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
+
+	<!-- ページトップ -->
+	<a href="#" id="page-top">Page Top</a>
+
 </div>
-<?php
-//echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-//echo $this->Paginator->numbers(array('separator' => ''));
-//echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-?>
