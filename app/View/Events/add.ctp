@@ -43,7 +43,7 @@
             <tr>
 
             <tr>
-                <th>公開開始</th>
+                <th>受付開始</th>
                 <td>
                     <?php echo $this->Form->input(
                         'start_date',
@@ -58,7 +58,7 @@
             </tr>
 
             <tr>
-                <th>公開終了</th>
+                <th>受付終了</th>
                 <td>
                     <?php echo $this->Form->input(
                         'end_date',
