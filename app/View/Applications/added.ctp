@@ -1,9 +1,9 @@
 <div class="wrapper">
     <!-- ヘッダー -->
-    <header>
+    <div class="title">
         <h1>申し込み完了</h1>
         <h2>Application Completed</h2>
-    </header>
+    </div>
     <!-- 申し込み完了致しました。 -->
     <div class="mousikomi">
         <p><?php echo $application['Ticket']['Event']['title']; ?>　の申し込みを完了致しました。</p>
@@ -59,4 +59,9 @@
         </tr>
 
     </table>
+
+    <!-- ページトップ -->
+    <a href="#" id="page-top">Page Top</a>
+
+
 </div>

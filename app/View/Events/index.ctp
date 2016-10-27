@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <!-- ヘッダー -->
+    <!-- タイトル -->
     <div class="title">
         <h1>イベント一覧</h1>
         <h2>Event List</h2>
