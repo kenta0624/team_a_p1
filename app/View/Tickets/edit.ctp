@@ -4,11 +4,13 @@
         <h2><?php echo __('Ticket Edit'); ?></h2>
     </header>
 
-    <h3><?php echo $data['Event']['title']; ?></h3>
+    <h3><?php echo $eventTitle; ?></h3>
 
     <!-- ユーザー入力情報 タイトル＆表 -->
     <div class="tickets form">
         <?php echo $this->Form->create('Ticket', array('id' => 'Ticket')); ?>
+        <?php echo $this->Form->input('event_id',array('type' => 'hidden')); ?>
+
         <table class="type03" width="1000">
             <?php echo $this->Form->input('id'); ?>
 
@@ -43,7 +45,6 @@
                 </td>
             </tr>
 
-            <?php echo "<input type='hidden' name='event_id' value='" . $data['Event']['id'] . "'>"; ?>
         </table>
 
         <!-- ボタン -->
@@ -52,7 +53,7 @@
                     __('チケット一覧に戻る'),
                     array(
                         'action' => 'index',
-                        $data['Event']['id']
+                        $data['Ticket']['event_id']
                     ),
                     array('class' => 'button')
                 ); ?>
