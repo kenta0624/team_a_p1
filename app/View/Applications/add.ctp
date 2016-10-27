@@ -89,7 +89,6 @@
             $now = new DateTime();
 
             if ($start <= $now && $now <= $end) {
-                $this->log('この内容で申し込む','debug');
                 echo $this->Html->link(
                     'この内容で申し込む',
                     'javascript:void(0)',

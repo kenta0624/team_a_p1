@@ -13,8 +13,8 @@
                 <th><?php echo $this->Paginator->sort('event_date', '開催日'); ?></th>
                 <th><?php echo $this->Paginator->sort('price', '単価'); ?></th>
                 <th><?php echo $this->Paginator->sort('count', 'チケット総数'); ?></th>
-                <th><?php echo $this->Paginator->sort('sold', '販売済枚数'); ?></th>
-                <th><?php echo $this->Paginator->sort('stock', '在庫数'); ?></th>
+                <th><?php echo '販売済枚数'; //echo $this->Paginator->sort('sold', '販売済枚数'); ?></th>
+                <th><?php echo '在庫数'; //echo $this->Paginator->sort('stock', '在庫数'); ?></th>
                 <th><?php echo $this->Paginator->sort('created', '登録日'); ?></th>
                 <th><?php echo $this->Paginator->sort('modified', '更新日'); ?></th>
                 <th class="actions"><?php echo __('編集'); ?></th>

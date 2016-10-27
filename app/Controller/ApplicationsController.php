@@ -41,35 +41,36 @@ class ApplicationsController extends AppController
 
     public function index($id = null)
     {
-       $this->Application->recursive = 2;
-      If($this->request->is('post')){                            // リクエストがPOSTの場合
-          //$this->Application->recursive = 2;
-          $name=$this->request->data['Search']['customer_name'];       // Formの値を取得
-          //$data=$this->Paginator->paginate(array('customer_name like'=>'%'.$name.'%','Ticket.event_id'=>$id));
-          $data=$this->Application->find('all',
-              array(
-                  'conditions'=>array(
-                      'customer_name like'=>'%'.$name.'%')));
-                       // 'Ticket.event_id'=>$id),
-                  //'order'=> 'Application.ticket_id'));
-          $this->set('applications',$data);
-
-      }  else {
-
-          //$this->Application->recursive = 2;
-          $this->set(
-              'applications',
-                $this->Application->find(
-                'all',
+        $this->Application->recursive = 2;
+        If ($this->request->is('post')) {                            // リクエストがPOSTの場合
+            //$this->Application->recursive = 2;
+            $name = $this->request->data['Search']['customer_name'];       // Formの値を取得
+            //$data=$this->Paginator->paginate(array('customer_name like'=>'%'.$name.'%','Ticket.event_id'=>$id));
+            $data = $this->Application->find('all',
                 array(
                     'conditions' => array(
-                        'Ticket.event_id' => $id
-                    ),
-                    'order' => 'Application.ticket_id'
+                        'customer_name like' => '%' . $name . '%')));
+            // 'Ticket.event_id'=>$id),
+            //'order'=> 'Application.ticket_id'));
+            $this->set('applications', $data);
+
+        } else {
+
+            //$this->Application->recursive = 2;
+            $this->set(
+                'applications',
+                $this->Application->find(
+                    'all',
+                    array(
+                        'conditions' => array(
+                            'Ticket.event_id' => $id
+                        ),
+                        'order' => 'Application.ticket_id'
+                    )
                 )
-            )
-        );
-    }}
+            );
+        }
+    }
 
     /**
      * view method
@@ -105,24 +106,39 @@ class ApplicationsController extends AppController
             /*　申し込みボタンからのリクエストの場合
             * 　データの追加を実施
             */
+
+            /* レコード追加後に、在庫がなくなった場合、追加を取り消す */
+
+            $dataSource = $this->Application->getDataSource();
+            $dataSource->begin();
+
             $this->Application->create();
             $newApplication = $this->Application->save($this->request->data);
-            if (is_array($newApplication)) {
 
-                //データ追加に成功した後、メール送信（send）にリダイレクトする。
-                return $this->redirect(array('action' => 'send', $newApplication['Application']['id']));
+            $this->loadModel('Ticket');
+            $model_ticket = new Ticket();
+            $salesInfo = $model_ticket->getCountSoldStock($this->request->data['Application']['ticket_id']);
+
+            if ($salesInfo['stock'] < 0) {
+                $dataSource->rollback();
+                $newApplication = null;
+                $this->Flash->error('在庫足りませんでした。');
             } else {
-                $this->Flash->error(__('The application could not be saved. Please, try again.'));
+                $dataSource->commit();
+                if (is_array($newApplication)) {
+
+                    //データ追加に成功した後、メール送信（send）にリダイレクトする。
+                    return $this->redirect(array('action' => 'send', $newApplication['Application']['id']));
+                } else {
+                    $this->Flash->error('保存できませんでした。');
+                }
             }
+
         } else {
-            /*　申し込みボタン以外からのリクエストの場合
-             *　Eventの値をセット
-             **/
-
-            $this->loadModel('Event');
-            $this->set('eventInfo', $this->Event->find('first', array('conditions' => array('Event.id' => $event_id))));
-
+            /* 申し込みボタン以外からのリクエストの場合 */
         }
+        $this->loadModel('Event');
+        $this->set('eventInfo', $this->Event->find('first', array('conditions' => array('Event.id' => $event_id))));
 
         $allTickets = $this->Application->Ticket->find('all', array('conditions' => array('event_id' => $event_id)));
 
