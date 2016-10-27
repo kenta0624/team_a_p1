@@ -9,7 +9,6 @@
 	<!-- <h2><?php //echo __('Application List'); ?></h2> -->
 </header>
 
-
 <div align="right">
 	<?php echo $this->Form->create('Search',array('url'=>'index','id' => 'Search')); ?>
 	<dl class="search2">
@@ -37,8 +36,7 @@
 	 		<h3><?php	echo $applications[0]['Ticket']['Event']['title'];  ?></h3>
 		<?php } ?>
 
-</div><br>
-
+</div>
 
 <table class="type03" width="1000">
 	<thead>
@@ -113,7 +111,6 @@
 	//	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	//));
 	?>
-
 
 	<table class="type03" width="1000">
 		<thead>
