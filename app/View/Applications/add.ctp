@@ -20,10 +20,10 @@
 
 <div class="wrapper">
 
-    <header>
+    <div class="title">
         <h1><?php echo $eventInfo['Event']['title']; ?></h1>
         <!--<h2>Event</h2>-->
-    </header>
+    </div>
 
     <div class="event_img">
         <img src=<?php echo "/team_a_p1/app/webroot/img/" . $eventInfo['Event']['image']; ?>>

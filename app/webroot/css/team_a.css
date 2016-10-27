@@ -1,5 +1,11 @@
 body {
     margin: 0 auto;
+
+}
+
+html {
+    min-height: 100%;
+    position: relative;
 }
 
 
@@ -64,6 +70,8 @@ body {
     height: 50px;
     clear: both;
     border-top: 2px solid #d5d5d5;
+
+
 }
 
 
@@ -80,6 +88,10 @@ body {
     color: #ffffff;
     line-height: 50px;
     clear: both;
+
+
+
+
 }
 
 

@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <header>
+    <div class="title">
         <h1>チケット編集</h1>
         <h2><?php echo __('Ticket Edit'); ?></h2>
-    </header>
+    </div>
 
     <h3><?php echo $eventTitle; ?></h3>
 
@@ -89,5 +89,6 @@
         </div>
     </div>
 
+    <!-- ページトップ -->
+    <a href="#" id="page-top">Page Top</a>
     </div>
-</div>

@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <header>
+    <div class="title">
         <h1>チケット一覧</h1>
         <h2><?php echo __('Ticket List'); ?></h2>
-    </header>
+    </div>
     <!-- ユーザー入力情報 タイトル＆表  -->
     <div class="tickets index">
         <table class="type03" width="1000" cellpadding="0" cellspacing="0">
@@ -53,4 +53,6 @@
         echo $this->Paginator->next(__(' next ') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
+    <!-- ページトップ -->
+    <a href="#" id="page-top">Page Top</a>
 </div>

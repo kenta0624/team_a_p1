@@ -1,9 +1,9 @@
 <div class="wrapper">
     <!-- ヘッダー -->
-    <header>
+    <div class="title">
         <h1>新規チケット追加</h1>
         <h2><?php echo __('Ticket Add'); ?></h2>
-    </header>
+    </div>
     <h3><?php echo $eventTitle; ?></h3>
     <div class="tickets form">
         <?php echo $this->Form->create('Ticket', array('id' => 'Ticket')); ?>
@@ -64,5 +64,6 @@
     ?>
     <?php echo $this->Form->end(); ?>
 
-
+    <!-- ページトップ -->
+    <a href="#" id="page-top">Page Top</a>
 </div>

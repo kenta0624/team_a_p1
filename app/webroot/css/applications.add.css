@@ -3,10 +3,7 @@ body {
     font-family: Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
 }
 
-#container {
-    width: 1000px;
-    margin: 0 auto;
-}
+
 
 .wrapper {
     width: 1000px;
@@ -15,11 +12,12 @@ body {
 }
 
 /* header部分 */
-header {
+.title {
     width: 1000px;
     height: 80px;
     border-bottom: 3px solid #000000;
     box-shadow: 0px 1px #d5d5d5;
+    margin: 50px 0 0 0;
 }
 
 h1 {
@@ -174,4 +172,9 @@ a {
 
 #ApplicationEmail {
     width: 350px;
+}
+
+#footerbg {
+    margin: 50px 0 0 0;
+
 }
