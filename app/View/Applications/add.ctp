@@ -117,8 +117,15 @@
     <a href="#" id="page-top">Page Top</a>
 
 
+
     <!-- シェアボタンに変換される -->
     <div class="fb-like" data-href="<?php $this->Html->url('/controller/action/', true);?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+    <!-- シェアボタンに変換される -->
+    <div><a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a></div>
+
+
+
+
 
     <!-- [head]内や、[body]の終了直前などに配置 -->
     <div id="fb-root"></div>
@@ -129,6 +136,13 @@
             js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+    <!-- [head]内や、[body]の終了直前などに配置 -->
+    <script>
+        window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    </script>
 
 </div>
 
