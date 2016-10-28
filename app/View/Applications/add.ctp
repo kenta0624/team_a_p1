@@ -108,8 +108,27 @@
     </div>
     <?php echo $this->Form->end(); ?>
 
+
+
+
+
+
     <!-- ページトップ -->
     <a href="#" id="page-top">Page Top</a>
+
+
+    <!-- シェアボタンに変換される -->
+    <div class="fb-like" data-href="<?php $this->Html->url('/controller/action/', true);?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+
+    <!-- [head]内や、[body]の終了直前などに配置 -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
 </div>
 
