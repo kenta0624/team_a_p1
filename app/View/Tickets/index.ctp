@@ -53,6 +53,8 @@
         echo $this->Paginator->next(__(' next ') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
+
     <!-- ページトップ -->
     <a href="#" id="page-top">Page Top</a>
+
 </div>

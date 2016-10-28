@@ -3,15 +3,11 @@ body {
 	font-family:  Linotte, YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Roboto, メイリオ, Meiryo, "ＭＳ Ｐゴシック", Osaka, "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
 }
 
-
-
 .wrapper {
 	width: 1000px;
 	margin: 0 auto;
 
 }
-
-
 
 /* title部分 */
 .title {
@@ -32,8 +28,6 @@ h2 {
 	font-size: 35px;
 	color: #d5d5d5;
 }
-
-
 
 /* イベント一覧に戻るボタン */
 .button2 {
@@ -216,3 +210,6 @@ td img {
 	height: 316px;
 }
 
+#footer {
+	margin-top: 120px;
+}

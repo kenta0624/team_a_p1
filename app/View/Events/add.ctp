@@ -90,9 +90,12 @@
             </div>
         </div>
 
-        <?php echo $this->Form->end(); ?>
+
+    <?php echo $this->Form->end(); ?>
 
     <!-- ページトップ -->
     <a href="#" id="page-top">Page Top</a>
+
+
 
 </div>
