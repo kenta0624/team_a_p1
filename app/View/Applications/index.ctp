@@ -10,7 +10,7 @@
 </header>
 
 <div align="right">
-	<?php echo $this->Form->create('Search',array('url'=>'index','id' => 'Search')); ?>
+	<?php echo $this->Form->create('Search',array('url'=>'index/'.$applications[0]['Ticket']['event_id'],'id' => 'Search')); ?>
 	<dl class="search2">
 		<dt class="a1"><?php echo $this->Form->input('customer_name', array('label' => false)); ?></dt>
 		<dd>
@@ -65,7 +65,7 @@
 
 	<tbody>
     <?php
-		if(empty($applications)){
+		if(isset($applications)){
 		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Application']['id'];
@@ -126,7 +126,7 @@
 		<?php
 
 		//$this->log($applications,'debug');
-		if(empty($applications)){
+		if(isset($applications)){
 		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Ticket']['id'];
