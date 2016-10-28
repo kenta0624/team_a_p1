@@ -29,8 +29,15 @@ class EventsController extends AppController {
 
         if ($this->request->is('post')) {
             $title=$this->request->data['Search']['title'];
-            $data=$this->Paginator->paginate(array('title like'=>'%'.$title.'%',
-                'Event.user_id' => $userId));
+            $data=$this->Paginator->paginate(array(
+                'OR' => array(
+                    'title like'=>'%'.$title.'%',
+                    'Event.user_id' => $userId),
+                    array(
+                        'detail like'=>'%'.$title.'%',
+                        'Event.user_id' => $userId)
+                )
+            );
 
             $this->set('events',$data);
         } else {
