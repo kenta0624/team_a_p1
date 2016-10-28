@@ -125,7 +125,12 @@ class UsersController extends AppController
             $this->Flash->set('ログインしました');
             return $this->redirect($this->Auth->redirectUrl());
         } else {
-            return $this->Flash->set('ユーザー名とパスワードが正しくありません。再入力してください。');
+            if($this->request->is(array('post', 'put'))){
+                return $this->Flash->set('ユーザー名とパスワードが正しくありません。再入力してください。');
+            }else{
+                return null;
+            }
+
         }
     }
 

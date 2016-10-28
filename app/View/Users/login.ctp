@@ -21,8 +21,8 @@
         </div>
         <?php echo $this->Form->end(); ?>
 
-        <div class="">
-            <?php echo $this->Html->link('新規登録',array('action' => 'add'));?> ←後で修正
+        <div class="button-panel">
+            <?php echo $this->Html->link('新規登録',array('action' => 'add'));?>
         </div>
 
         <div class="form-footer">
