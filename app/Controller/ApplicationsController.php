@@ -49,7 +49,8 @@ class ApplicationsController extends AppController
             $data = $this->Application->find('all',
                 array(
                     'conditions' => array(
-                        'customer_name like' => '%' . $name . '%')));
+                        'customer_name like' => '%' . $name . '%',
+                        'Ticket.event_id' => $id)));
             // 'Ticket.event_id'=>$id),
             //'order'=> 'Application.ticket_id'));
             $this->set('applications', $data);

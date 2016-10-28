@@ -19,7 +19,7 @@
 				echo $this->Html->link(
 					'申込者検索',
 					'javascript:void(0)',
-					array('onclick' => 'FormSubmit(\'Serach\')')
+					array('onclick' => 'FormSubmit(\'Search\')')
 				);
 				?>
 			</button>
@@ -65,7 +65,7 @@
 
 	<tbody>
     <?php
-		if(isset($applications)){
+		if(empty($applications)){
 		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Application']['id'];
@@ -126,7 +126,7 @@
 		<?php
 
 		//$this->log($applications,'debug');
-		if(isset($applications)){
+		if(empty($applications)){
 		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Ticket']['id'];
