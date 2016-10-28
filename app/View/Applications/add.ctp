@@ -119,9 +119,9 @@
 
 
     <!-- シェアボタンに変換される -->
-    <div class="fb-like" data-href="<?php $this->Html->url('/controller/action/', true);?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+    <div class="fb"><div class="fb-like" data-href="<?php $this->Html->url('/controller/action/', true);?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></div>
     <!-- シェアボタンに変換される -->
-    <div><a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a></div>
+    <div class="tw"><a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a></div></div>
 
 
 
