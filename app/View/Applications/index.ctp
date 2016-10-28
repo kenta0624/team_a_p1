@@ -65,7 +65,7 @@
 
 	<tbody>
     <?php
-		if(isset($applications)){
+		if(empty($applications)){
 		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Application']['id'];
@@ -126,7 +126,7 @@
 		<?php
 
 		//$this->log($applications,'debug');
-		if(isset($applications)){
+		if(empty($applications)){
 		} else {
 			foreach ($applications as $key => $value) {
 				$sort[$key] = $value['Ticket']['id'];
